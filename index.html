@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#27ae60">
+    <title>Namaz Tracker - Bangalore</title>
+    <!-- Inline Web App Manifest -->
+    <link rel="manifest" href='data:application/manifest+json,{"name":"Namaz Tracker Bangalore","short_name":"NamazTracker","start_url":".","display":"standalone","background_color":"#f4f7f6","theme_color":"#27ae60","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/2972/2972143.png","sizes":"512x512","type":"image/png"}]}'>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --primary-color: #2c3e50;
+            --accent-color: #27ae60;
+            --border-color: #ddd;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --text-color: #e0e0e0;
+            --primary-color: #ecf0f1;
+            --accent-color: #2ecc71;
+            --border-color: #444;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .date-info {
+            font-size: 0.9rem;
+        }
+
+        .greeting-container {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .edit-icon {
+            cursor: pointer;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        h2 { margin-top: 0; font-size: 1.2rem; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; display: inline-block; }
+
+        .prayer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .prayer-row:last-child { border-bottom: none; }
+
+        .prayer-name-container { flex: 1; }
+        .prayer-name { font-weight: bold; display: block; }
+        .dua-text { font-size: 0.75rem; color: #7f8c8d; font-style: italic; }
+
+        .checkbox-container {
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+        input[type="checkbox"] {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            accent-color: var(--accent-color);
+        }
+
+        .streak-badge {
+            font-size: 0.8rem;
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 10px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 8px;
+        }
+
+        .stat-value { font-weight: bold; font-size: 1.1rem; display: block; }
+        .stat-label { font-size: 0.7rem; text-transform: uppercase; }
+
+        .weekly-grid {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+
+        .weekly-grid th, .weekly-grid td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            text-align: center;
+        }
+
+        .qaza-section input, .qaza-section select, .qaza-section button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .btn {
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 15px;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary { background: var(--accent-color); color: white; }
+        .btn-secondary { background: var(--primary-color); color: white; }
+        .btn:hover { opacity: 0.8; }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .qaza-list {
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 0.85rem;
+        }
+
+        .qaza-item {
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        #installBtn { display: none; }
+
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .weekly-grid { font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="date-info">
+            <div id="gregorianDate"></div>
+            <div id="hijriDate" style="color: var(--accent-color); font-weight: bold;"></div>
+            <div id="location">Bangalore, India</div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn btn-secondary" id="installBtn">Install App</button>
+            <button class="btn btn-secondary" id="themeToggle">🌓</button>
+        </div>
+    </header>
+
+    <div class="greeting-container">
+        <span id="greetingText">As-salamu alaykum</span>
+        <span class="edit-icon" id="editNameBtn">✏️</span>
+    </div>
+
+    <div class="card">
+        <h2>Today's Prayers</h2>
+        <div id="prayerList"></div>
+        <div style="margin-top: 15px; font-size: 0.9rem;">
+            Total Daily Streak: <span id="totalStreak" class="streak-badge">0</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Weekly View (Last 7 Days)</h2>
+        <div style="overflow-x: auto;">
+            <table class="weekly-grid" id="weeklyTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>F</th><th>D</th><th>A</th><th>M</th><th>I</th>
+                    </tr>
+                </thead>
+                <tbody id="weeklyBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Monthly Stats</h2>
+        <div class="stats-grid" id="monthlyStats"></div>
+    </div>
+
+    <div class="card qaza-section">
+        <h2>Qaza Counter</h2>
+        <select id="qazaPrayer">
+            <option value="Fajr">Fajr</option>
+            <option value="Dhuhr">Dhuhr</option>
+            <option value="Asr">Asr</option>
+            <option value="Maghrib">Maghrib</option>
+            <option value="Isha">Isha</option>
+        </select>
+        <input type="text" id="qazaReason" placeholder="Reason (optional)">
+        <button class="btn btn-primary" id="addQaza">Add Missed Prayer</button>
+        <div class="qaza-list" id="qazaList"></div>
+    </div>
+
+    <div class="actions">
+        <button class="btn btn-secondary" id="exportBtn">Export JSON</button>
+        <button class="btn btn-secondary" id="exportPdfBtn">Export PDF Report</button>
+    </div>
+</div>
+
+<!-- Name Modal -->
+<div class="modal-overlay" id="nameModal">
+    <div class="modal-content">
+        <h3>Welcome</h3>
+        <p>Please enter your name:</p>
+        <input type="text" id="userNameInput" placeholder="Your Name">
+        <button class="btn btn-primary" id="saveNameBtn">Save</button>
+    </div>
+</div>
+
+<!-- Completion Modal -->
+<div class="modal-overlay" id="completionModal">
+    <div class="modal-content">
+        <h2 style="color: var(--accent-color); border: none;">MashaAllah!</h2>
+        <p id="completionMsg"></p>
+        <p id="randomDua" style="font-style: italic; color: #7f8c8d; margin-top: 15px;"></p>
+        <button class="btn btn-primary" onclick="document.getElementById('completionModal').style.display='none'">Alhamdulillah</button>
+    </div>
+</div>
+
+<script>
+    // Service Worker Registration for PWA
+    if ('serviceWorker' in navigator) {
+        const swCode = `
+            const CACHE_NAME = 'namaz-tracker-v1';
+            const ASSETS = [location.pathname];
+            self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS))));
+            self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
+        `;
+        const blob = new Blob([swCode], { type: 'application/javascript' });
+        navigator.serviceWorker.register(URL.createObjectURL(blob));
+    }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        document.getElementById('installBtn').style.display = 'block';
+    });
+
+    document.getElementById('installBtn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') document.getElementById('installBtn').style.display = 'none';
+            deferredPrompt = null;
+        }
+    });
+
+    const PRAYERS = [
+        { name: 'Fajr', dua: 'Allahumma ajirni minan naar' },
+        { name: 'Dhuhr', dua: 'Subhanallahi wal hamdulillah' },
+        { name: 'Asr', dua: 'Astaghfirullah al-azim' },
+        { name: 'Maghrib', dua: 'Allahumma inni as-alukal jannah' },
+        { name: 'Isha', dua: 'Subhanallahi wa bihamdihi' }
+    ];
+
+    const DUAS = [
+        "Allahumma inni as'aluka al-jannah",
+        "Rabbana atina fid-dunya hasanah",
+        "Allahumma ajirni minan-naar",
+        "Hasbiyallahu la ilaha illa huwa",
+        "La hawla wa la quwwata illa billah"
+    ];
+
+    let state = {
+        history: {},
+        qaza: [],
+        theme: 'light',
+        userName: '',
+        lastCompletionDuaDate: ''
+    };
+
+    function init() {
+        loadData();
+        checkName();
+        updateDates();
+        renderPrayers();
+        renderWeekly();
+        renderStats();
+        renderQaza();
+        applyTheme();
+        updateGreeting();
+        
+        document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+        document.getElementById('addQaza').addEventListener('click', addQaza);
+        document.getElementById('exportBtn').addEventListener('click', exportData);
+        document.getElementById('exportPdfBtn').addEventListener('click', exportPdf);
+        document.getElementById('saveNameBtn').addEventListener('click', saveName);
+        document.getElementById('editNameBtn').addEventListener('click', () => {
+            document.getElementById('userNameInput').value = state.userName;
+            document.getElementById('nameModal').style.display = 'flex';
+        });
+    }
+
+    function loadData() {
+        const saved = localStorage.getItem('namazTrackerData');
+        if (saved) state = JSON.parse(saved);
+    }
+
+    function saveData() {
+        localStorage.setItem('namazTrackerData', JSON.stringify(state));
+    }
+
+    function checkName() {
+        if (!state.userName) {
+            document.getElementById('nameModal').style.display = 'flex';
+        }
+    }
+
+    function saveName() {
+        const name = document.getElementById('userNameInput').value.trim();
+        if (name) {
+            state.userName = name;
+            saveData();
+            updateGreeting();
+            document.getElementById('nameModal').style.display = 'none';
+        }
+    }
+
+    function updateGreeting() {
+        if (state.userName) {
+            document.getElementById('greetingText').textContent = `As-salamu alaykum, ${state.userName}`;
+        }
+    }
+
+    function updateDates() {
+        const now = new Date();
+        document.getElementById('gregorianDate').textContent = now.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        const hijri = new Intl.DateTimeFormat('en-u-ca-islamic-uma', { day: 'numeric', month: 'long', year: 'numeric' }).format(now);
+        document.getElementById('hijriDate').textContent = hijri;
+    }
+
+    function getTodayStr() { return new Date().toISOString().split('T')[0]; }
+
+    function renderPrayers() {
+        const today = getTodayStr();
+        const todayData = state.history[today] || {};
+        const container = document.getElementById('prayerList');
+        container.innerHTML = '';
+
+        PRAYERS.forEach(p => {
+            const row = document.createElement('div');
+            row.className = 'prayer-row';
+            const streak = calculateStreak(p.name);
+            row.innerHTML = `
+                <div class="prayer-name-container">
+                    <span class="prayer-name">${p.name} <span class="streak-badge">🔥 ${streak}</span></span>
+                    <span class="dua-text">${p.dua}</span>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" ${todayData[p.name] ? 'checked' : ''} onchange="togglePrayer('${p.name}')">
+                </div>
+            `;
+            container.appendChild(row);
+        });
+        document.getElementById('totalStreak').textContent = `🔥 ${calculateTotalStreak()}`;
+    }
+
+    function togglePrayer(prayerName) {
+        const today = getTodayStr();
+        if (!state.history[today]) state.history[today] = {};
+        state.history[today][prayerName] = !state.history[today][prayerName];
+        saveData();
+        renderPrayers();
+        renderWeekly();
+        renderStats();
+        checkCompletion();
+    }
+
+    function checkCompletion() {
+        const today = getTodayStr();
+        const todayData = state.history[today] || {};
+        const allDone = PRAYERS.every(p => todayData[p.name]);
+        
+        if (allDone && state.lastCompletionDuaDate !== today) {
+            state.lastCompletionDuaDate = today;
+            saveData();
+            showCompletionModal();
+        }
+    }
+
+    function showCompletionModal() {
+        const randomDua = DUAS[Math.floor(Math.random() * DUAS.length)];
+        document.getElementById('completionMsg').textContent = `${state.userName}, you have completed all your prayers today!`;
+        document.getElementById('randomDua').textContent = randomDua;
+        document.getElementById('completionModal').style.display = 'flex';
+    }
+
+    function calculateStreak(prayerName) {
+        let streak = 0;
+        let d = new Date();
+        while (true) {
+            const dateStr = d.toISOString().split('T')[0];
+            if (state.history[dateStr] && state.history[dateStr][prayerName]) {
+                streak++;
+                d.setDate(d.getDate() - 1);
+            } else {
+                if (dateStr === getTodayStr()) { d.setDate(d.getDate() - 1); continue; }
+                break;
+            }
+        }
+        return streak;
+    }
+
+    function calculateTotalStreak() {
+        let streak = 0;
+        let d = new Date();
+        while (true) {
+            const dateStr = d.toISOString().split('T')[0];
+            const dayData = state.history[dateStr] || {};
+            if (PRAYERS.every(p => dayData[p.name])) {
+                streak++;
+                d.setDate(d.getDate() - 1);
+            } else {
+                if (dateStr === getTodayStr()) { d.setDate(d.getDate() - 1); continue; }
+                break;
+            }
+        }
+        return streak;
+    }
+
+    function renderWeekly() {
+        const tbody = document.getElementById('weeklyBody');
+        tbody.innerHTML = '';
+        for (let i = 0; i < 7; i++) {
+            const d = new Date();
+            d.setDate(d.getDate() - i);
+            const dateStr = d.toISOString().split('T')[0];
+            const dayData = state.history[dateStr] || {};
+            const tr = document.createElement('tr');
+            let cells = `<td>${d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}</td>`;
+            PRAYERS.forEach(p => cells += `<td>${dayData[p.name] ? '✓' : '✗'}</td>`);
+            tr.innerHTML = cells;
+            tbody.appendChild(tr);
+        }
+    }
+
+    function renderStats() {
+        const container = document.getElementById('monthlyStats');
+        container.innerHTML = '';
+        const now = new Date();
+        const month = now.getMonth();
+        const year = now.getFullYear();
+        const daysInMonth = Object.keys(state.history).filter(d => {
+            const date = new Date(d);
+            return date.getMonth() === month && date.getFullYear() === year;
+        });
+        const stats = {};
+        PRAYERS.forEach(p => stats[p.name] = 0);
+        let totalCompleted = 0;
+        daysInMonth.forEach(d => {
+            PRAYERS.forEach(p => {
+                if (state.history[d][p.name]) { stats[p.name]++; totalCompleted++; }
+            });
+        });
+        const daysPassed = now.getDate();
+        PRAYERS.forEach(p => {
+            const pct = daysPassed > 0 ? Math.round((stats[p.name] / daysPassed) * 100) : 0;
+            addStatItem(container, p.name, `${pct}%`);
+        });
+        const totalPct = daysPassed > 0 ? Math.round((totalCompleted / (daysPassed * 5)) * 100) : 0;
+        addStatItem(container, 'Total', `${totalPct}%`);
+    }
+
+    function addStatItem(container, label, value) {
+        const div = document.createElement('div');
+        div.className = 'stat-item';
+        div.innerHTML = `<span class="stat-value">${value}</span><span class="stat-label">${label}</span>`;
+        container.appendChild(div);
+    }
+
+    function addQaza() {
+        const prayer = document.getElementById('qazaPrayer').value;
+        const reason = document.getElementById('qazaReason').value;
+        state.qaza.unshift({ prayer, reason, date: getTodayStr(), timestamp: Date.now() });
+        saveData();
+        renderQaza();
+        document.getElementById('qazaReason').value = '';
+    }
+
+    function renderQaza() {
+        const container = document.getElementById('qazaList');
+        container.innerHTML = '';
+        state.qaza.forEach((q, index) => {
+            const div = document.createElement('div');
+            div.className = 'qaza-item';
+            div.innerHTML = `<span><strong>${q.prayer}</strong> - ${q.date} <br><small>${q.reason || 'No reason'}</small></span>
+                <button class="btn" onclick="removeQaza(${index})" style="background:none; color:red;">✕</button>`;
+            container.appendChild(div);
+        });
+    }
+
+    function removeQaza(index) {
+        state.qaza.splice(index, 1);
+        saveData();
+        renderQaza();
+    }
+
+    function toggleTheme() {
+        state.theme = state.theme === 'light' ? 'dark' : 'light';
+        saveData();
+        applyTheme();
+    }
+
+    function applyTheme() { document.documentElement.setAttribute('data-theme', state.theme); }
+
+    function exportData() {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state));
+        const a = document.createElement('a');
+        a.href = dataStr; a.download = "namaz_tracker_backup.json";
+        a.click();
+    }
+
+    function exportPdf() {
+        const now = new Date();
+        const monthName = now.toLocaleString('default', { month: 'long' });
+        const year = now.getFullYear();
+        const daysInMonth = Object.keys(state.history).filter(d => {
+            const date = new Date(d);
+            return date.getMonth() === now.getMonth() && date.getFullYear() === year;
+        });
+        const stats = {};
+        PRAYERS.forEach(p => stats[p.name] = 0);
+        let totalCompleted = 0;
+        daysInMonth.forEach(d => {
+            PRAYERS.forEach(p => { if (state.history[d][p.name]) { stats[p.name]++; totalCompleted++; } });
+        });
+        const daysPassed = now.getDate();
+
+        let html = `<html><head><style>
+                body { font-family: sans-serif; padding: 40px; color: #333; }
+                h1 { color: #27ae60; border-bottom: 2px solid #27ae60; }
+                .stat-box { display: inline-block; width: 30%; margin-bottom: 20px; }
+                table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+            </style></head><body>
+                <h1>Namaz Report - ${monthName} ${year}</h1>
+                <p><strong>User:</strong> ${state.userName || 'User'}</p>
+                <p><strong>Location:</strong> Bangalore, India</p>
+                <h3>Monthly Completion</h3>`;
+        PRAYERS.forEach(p => {
+            const pct = daysPassed > 0 ? Math.round((stats[p.name] / daysPassed) * 100) : 0;
+            html += `<div class="stat-box"><strong>${p.name}:</strong> ${pct}% (${calculateStreak(p.name)} streak)</div>`;
+        });
+        const totalPct = daysPassed > 0 ? Math.round((totalCompleted / (daysPassed * 5)) * 100) : 0;
+        html += `<p><strong>Total Monthly Completion:</strong> ${totalPct}%</p>
+                 <p><strong>Total Daily Streak:</strong> ${calculateTotalStreak()} days</p>
+                 <h3>Qaza Log</h3>
+                 <table><thead><tr><th>Date</th><th>Prayer</th><th>Reason</th></tr></thead><tbody>`;
+        state.qaza.forEach(q => { html += `<tr><td>${q.date}</td><td>${q.prayer}</td><td>${q.reason || '-'}</td></tr>`; });
+        html += `</tbody></table></body></html>`;
+
+        const win = window.open('', '_blank');
+        win.document.write(html);
+        win.document.close();
+        win.print();
+    }
+
+    init();
+</script>
+</body>
+</html>
