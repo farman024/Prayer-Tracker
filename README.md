@@ -2,7 +2,7 @@
 
 **Track your 5 daily prayers. Build the streak. Never miss Isha again.**
 
-[![Live App](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://farman024.github.io/Prayer-Tracker)
+[![Live App](https://img.shields.io/badge/Live-Demo-green?style=flat-square)(https://farman024.github.io/Prayer-Tracker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE))
 [![PWA Ready](https://img.shields.io/badge/PWA-Ready-purple?style=flat-square)](manifest.json)
 
