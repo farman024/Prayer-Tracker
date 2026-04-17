@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#27ae60">
-    <title>Namaz Tracker - Bangalore</title>
-    <!-- Inline Web App Manifest -->
-    <link rel="manifest" href='data:application/manifest+json,{"name":"Namaz Tracker Bangalore","short_name":"NamazTracker","start_url":".","display":"standalone","background_color":"#f4f7f6","theme_color":"#27ae60","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/2972/2972143.png","sizes":"512x512","type":"image/png"}]}'>
+    <title>Namaz Tracker</title>
+    
+    <!-- Inline Web App Manifest Data -->
+    <script type="application/json" id="manifest">
+    {
+        "name": "Namaz Tracker",
+        "short_name": "NamazTracker",
+        "start_url": "./",
+        "display": "standalone",
+        "background_color": "#f4f7f6",
+        "theme_color": "#27ae60",
+        "icons": [
+            {
+                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAB7ElEQVR4nO3SQQ3AIADAQMDMbKEQjfOwPsiSOwV9dD5nD/hq3Q7g3wxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiJ5AceNArWD4cBCAAAAAElFTkSuQmCC",
+                "sizes": "192x192",
+                "type": "image/png"
+            },
+            {
+                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAHH0lEQVR4nO3VQQEAEADAQJRRS0IZxfDYXYL9Nvc9A4Ce9TsAgD8MACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIeq80FNUsMYTIAAAAASUVORK5CYII=",
+                "sizes": "512x512",
+                "type": "image/png"
+            }
+        ]
+    }
+    </script>
+    <script>
+        const manifestStr = document.getElementById('manifest').textContent;
+        const manifestBlob = new Blob([manifestStr], { type: 'application/json' });
+        const manifestUrl = URL.createObjectURL(manifestBlob);
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = manifestUrl;
+        document.head.appendChild(link);
+    </script>
+
     <style>
         :root {
             --bg-color: #f4f7f6;
@@ -38,10 +70,7 @@
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .container { max-width: 600px; margin: 0 auto; }
 
         header {
             display: flex;
@@ -50,9 +79,8 @@
             margin-bottom: 20px;
         }
 
-        .date-info {
-            font-size: 0.9rem;
-        }
+        .date-info { font-size: 0.9rem; }
+        .offline-badge { background: #e74c3c; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 5px; display: none; }
 
         .greeting-container {
             margin-bottom: 15px;
@@ -63,11 +91,7 @@
             gap: 8px;
         }
 
-        .edit-icon {
-            cursor: pointer;
-            font-size: 0.9rem;
-            opacity: 0.6;
-        }
+        .edit-icon { cursor: pointer; font-size: 0.9rem; opacity: 0.6; }
 
         .card {
             background: var(--card-bg);
@@ -89,141 +113,43 @@
         }
 
         .prayer-row:last-child { border-bottom: none; }
-
         .prayer-name-container { flex: 1; }
         .prayer-name { font-weight: bold; display: block; }
         .dua-text { font-size: 0.75rem; color: #7f8c8d; font-style: italic; }
+        .prayer-time { font-size: 0.8rem; color: var(--accent-color); font-weight: bold; }
 
-        .checkbox-container {
-            width: 30px;
-            height: 30px;
-            position: relative;
-        }
+        .checkbox-container { width: 30px; height: 30px; position: relative; }
+        input[type="checkbox"] { width: 25px; height: 25px; cursor: pointer; accent-color: var(--accent-color); }
 
-        input[type="checkbox"] {
-            width: 25px;
-            height: 25px;
-            cursor: pointer;
-            accent-color: var(--accent-color);
-        }
+        .streak-badge { font-size: 0.8rem; background: var(--accent-color); color: white; padding: 2px 8px; border-radius: 10px; margin-left: 10px; }
 
-        .streak-badge {
-            font-size: 0.8rem;
-            background: var(--accent-color);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: 10px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 10px;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 10px;
-            background: rgba(39, 174, 96, 0.1);
-            border-radius: 8px;
-        }
-
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; text-align: center; }
+        .stat-item { padding: 10px; background: rgba(39, 174, 96, 0.1); border-radius: 8px; }
         .stat-value { font-weight: bold; font-size: 1.1rem; display: block; }
         .stat-label { font-size: 0.7rem; text-transform: uppercase; }
 
-        .weekly-grid {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.8rem;
-        }
-
-        .weekly-grid th, .weekly-grid td {
-            border: 1px solid var(--border-color);
-            padding: 8px;
-            text-align: center;
-        }
+        .weekly-grid { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+        .weekly-grid th, .weekly-grid td { border: 1px solid var(--border-color); padding: 8px; text-align: center; }
 
         .qaza-section input, .qaza-section select, .qaza-section button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background: var(--card-bg);
-            color: var(--text-color);
+            width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color);
         }
 
-        .btn {
-            cursor: pointer;
-            border: none;
-            border-radius: 6px;
-            padding: 10px 15px;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-
+        .btn { cursor: pointer; border: none; border-radius: 6px; padding: 10px 15px; font-weight: bold; transition: opacity 0.2s; }
         .btn-primary { background: var(--accent-color); color: white; }
         .btn-secondary { background: var(--primary-color); color: white; }
         .btn:hover { opacity: 0.8; }
 
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
+        .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .qaza-list { max-height: 200px; overflow-y: auto; font-size: 0.85rem; }
+        .qaza-item { padding: 8px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; }
 
-        .qaza-list {
-            max-height: 200px;
-            overflow-y: auto;
-            font-size: 0.85rem;
-        }
-
-        .qaza-item {
-            padding: 8px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-
-        .modal-content input {
-            width: 100%;
-            padding: 10px;
-            margin: 15px 0;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-color);
-            color: var(--text-color);
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: var(--card-bg); padding: 30px; border-radius: 12px; max-width: 400px; width: 90%; text-align: center; box-shadow: var(--shadow); }
+        .modal-content input { width: 100%; padding: 10px; margin: 15px 0; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); }
 
         #installBtn { display: none; }
-
-        @media (max-width: 480px) {
-            body { padding: 10px; }
-            .weekly-grid { font-size: 0.7rem; }
-        }
+        @media (max-width: 480px) { body { padding: 10px; } .weekly-grid { font-size: 0.7rem; } }
     </style>
 </head>
 <body>
@@ -231,9 +157,12 @@
 <div class="container">
     <header>
         <div class="date-info">
-            <div id="gregorianDate"></div>
-            <div id="hijriDate" style="color: var(--accent-color); font-weight: bold;"></div>
-            <div id="location">Bangalore, India</div>
+            <div id="unifiedDate">Loading date...</div>
+            <div id="locationDisplay">
+                <span id="cityName">Detecting location...</span>
+                <span class="edit-icon" id="changeLocationBtn">📍</span>
+                <span class="offline-badge" id="offlineBadge">Offline</span>
+            </div>
         </div>
         <div style="display: flex; gap: 10px;">
             <button class="btn btn-secondary" id="installBtn">Install App</button>
@@ -304,6 +233,17 @@
     </div>
 </div>
 
+<!-- Location Modal -->
+<div class="modal-overlay" id="locationModal">
+    <div class="modal-content">
+        <h3>Set Location</h3>
+        <p>Enter City, Country:</p>
+        <input type="text" id="locationInput" placeholder="e.g. Bangalore, India">
+        <button class="btn btn-primary" id="saveLocationBtn">Save Location</button>
+        <button class="btn btn-secondary" id="detectLocationBtn" style="margin-top: 10px;">Detect Automatically</button>
+    </div>
+</div>
+
 <!-- Completion Modal -->
 <div class="modal-overlay" id="completionModal">
     <div class="modal-content">
@@ -315,26 +255,27 @@
 </div>
 
 <script>
-    // Service Worker Registration for PWA
+    // Service Worker Registration
     if ('serviceWorker' in navigator) {
         const swCode = `
-            const CACHE_NAME = 'namaz-tracker-v1';
-            const ASSETS = [location.pathname];
-            self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS))));
+            const CACHE_NAME = 'namaz-tracker-v4';
+            self.addEventListener('install', e => {
+                self.skipWaiting();
+                e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll([location.origin + location.pathname])));
+            });
+            self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
             self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
         `;
-        const blob = new Blob([swCode], { type: 'application/javascript' });
-        navigator.serviceWorker.register(URL.createObjectURL(blob));
+        const swBlob = new Blob([swCode], { type: 'application/javascript' });
+        navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(err => console.error('SW Error:', err));
     }
 
-    // PWA Install Logic
+    // PWA Install
     let deferredPrompt;
     window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
+        e.preventDefault(); deferredPrompt = e;
         document.getElementById('installBtn').style.display = 'block';
     });
-
     document.getElementById('installBtn').addEventListener('click', async () => {
         if (deferredPrompt) {
             deferredPrompt.prompt();
@@ -353,32 +294,28 @@
     ];
 
     const DUAS = [
-        "Allahumma inni as'aluka al-jannah",
-        "Rabbana atina fid-dunya hasanah",
-        "Allahumma ajirni minan-naar",
-        "Hasbiyallahu la ilaha illa huwa",
+        "Allahumma inni as'aluka al-jannah", "Rabbana atina fid-dunya hasanah",
+        "Allahumma ajirni minan-naar", "Hasbiyallahu la ilaha illa huwa",
         "La hawla wa la quwwata illa billah"
     ];
 
     let state = {
-        history: {},
-        qaza: [],
-        theme: 'light',
-        userName: '',
-        lastCompletionDuaDate: ''
+        history: {}, qaza: [], theme: 'light', userName: '',
+        lastCompletionDuaDate: '', location: null, prayerTimes: null, hijriDate: null
     };
 
-    function init() {
+    async function init() {
         loadData();
         checkName();
-        updateDates();
-        renderPrayers();
-        renderWeekly();
-        renderStats();
-        renderQaza();
         applyTheme();
         updateGreeting();
         
+        if (!state.location) {
+            detectLocation();
+        } else {
+            fetchPrayerTimes();
+        }
+
         document.getElementById('themeToggle').addEventListener('click', toggleTheme);
         document.getElementById('addQaza').addEventListener('click', addQaza);
         document.getElementById('exportBtn').addEventListener('click', exportData);
@@ -388,6 +325,15 @@
             document.getElementById('userNameInput').value = state.userName;
             document.getElementById('nameModal').style.display = 'flex';
         });
+        document.getElementById('changeLocationBtn').addEventListener('click', () => {
+            document.getElementById('locationModal').style.display = 'flex';
+        });
+        document.getElementById('saveLocationBtn').addEventListener('click', saveManualLocation);
+        document.getElementById('detectLocationBtn').addEventListener('click', detectLocation);
+
+        window.addEventListener('online', () => document.getElementById('offlineBadge').style.display = 'none');
+        window.addEventListener('offline', () => document.getElementById('offlineBadge').style.display = 'inline');
+        if (!navigator.onLine) document.getElementById('offlineBadge').style.display = 'inline';
     }
 
     function loadData() {
@@ -395,37 +341,98 @@
         if (saved) state = JSON.parse(saved);
     }
 
-    function saveData() {
-        localStorage.setItem('namazTrackerData', JSON.stringify(state));
-    }
+    function saveData() { localStorage.setItem('namazTrackerData', JSON.stringify(state)); }
 
-    function checkName() {
-        if (!state.userName) {
-            document.getElementById('nameModal').style.display = 'flex';
-        }
-    }
+    function checkName() { if (!state.userName) document.getElementById('nameModal').style.display = 'flex'; }
 
     function saveName() {
         const name = document.getElementById('userNameInput').value.trim();
-        if (name) {
-            state.userName = name;
+        if (name) { state.userName = name; saveData(); updateGreeting(); document.getElementById('nameModal').style.display = 'none'; }
+    }
+
+    function updateGreeting() { if (state.userName) document.getElementById('greetingText').textContent = `As-salamu alaykum, ${state.userName}`; }
+
+    function detectLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(async (pos) => {
+                const { latitude, longitude } = pos.coords;
+                state.location = { lat: latitude, lng: longitude };
+                await reverseGeocode(latitude, longitude);
+                fetchPrayerTimes();
+                document.getElementById('locationModal').style.display = 'none';
+            }, () => {
+                document.getElementById('locationModal').style.display = 'flex';
+            });
+        } else {
+            document.getElementById('locationModal').style.display = 'flex';
+        }
+    }
+
+    async function reverseGeocode(lat, lng) {
+        try {
+            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+            const data = await res.json();
+            const city = data.address.city || data.address.town || data.address.village || "Unknown City";
+            const country = data.address.country || "Unknown Country";
+            state.location.name = `${city}, ${country}`;
             saveData();
-            updateGreeting();
-            document.getElementById('nameModal').style.display = 'none';
+        } catch (e) {
+            state.location.name = "Detected Location";
         }
     }
 
-    function updateGreeting() {
-        if (state.userName) {
-            document.getElementById('greetingText').textContent = `As-salamu alaykum, ${state.userName}`;
+    function saveManualLocation() {
+        const loc = document.getElementById('locationInput').value.trim();
+        if (loc) {
+            state.location = { name: loc, manual: true };
+            saveData();
+            fetchPrayerTimes();
+            document.getElementById('locationModal').style.display = 'none';
         }
     }
 
-    function updateDates() {
+    async function fetchPrayerTimes() {
+        const today = getTodayStr();
+        const cachedDate = localStorage.getItem('lastFetchDate');
+        
+        if (cachedDate === today && state.prayerTimes && state.hijriDate) {
+            renderDashboard();
+            return;
+        }
+
+        let url = `https://api.aladhan.com/v1/timings/${Math.floor(Date.now()/1000)}?`;
+        if (state.location.lat) {
+            url += `latitude=${state.location.lat}&longitude=${state.location.lng}`;
+        } else {
+            url += `address=${encodeURIComponent(state.location.name)}`;
+        }
+
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            if (data.code === 200) {
+                state.prayerTimes = data.data.timings;
+                state.hijriDate = data.data.date.hijri;
+                localStorage.setItem('lastFetchDate', today);
+                saveData();
+                renderDashboard();
+            }
+        } catch (e) {
+            if (state.prayerTimes) renderDashboard();
+        }
+    }
+
+    function renderDashboard() {
         const now = new Date();
-        document.getElementById('gregorianDate').textContent = now.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        const hijri = new Intl.DateTimeFormat('en-u-ca-islamic-uma', { day: 'numeric', month: 'long', year: 'numeric' }).format(now);
-        document.getElementById('hijriDate').textContent = hijri;
+        const greg = now.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        const hijri = state.hijriDate ? `${state.hijriDate.day} ${state.hijriDate.month.en} ${state.hijriDate.year} ${state.hijriDate.designation.abbreviated}` : "";
+        document.getElementById('unifiedDate').textContent = `${greg} | ${hijri}`;
+        document.getElementById('cityName').textContent = state.location.name;
+        
+        renderPrayers();
+        renderWeekly();
+        renderStats();
+        renderQaza();
     }
 
     function getTodayStr() { return new Date().toISOString().split('T')[0]; }
@@ -440,10 +447,14 @@
             const row = document.createElement('div');
             row.className = 'prayer-row';
             const streak = calculateStreak(p.name);
+            const time = state.prayerTimes ? state.prayerTimes[p.name] : "--:--";
             row.innerHTML = `
                 <div class="prayer-name-container">
                     <span class="prayer-name">${p.name} <span class="streak-badge">🔥 ${streak}</span></span>
                     <span class="dua-text">${p.dua}</span>
+                </div>
+                <div style="text-align: right; margin-right: 15px;">
+                    <div class="prayer-time">${time}</div>
                 </div>
                 <div class="checkbox-container">
                     <input type="checkbox" ${todayData[p.name] ? 'checked' : ''} onchange="togglePrayer('${p.name}')">
@@ -468,51 +479,33 @@
     function checkCompletion() {
         const today = getTodayStr();
         const todayData = state.history[today] || {};
-        const allDone = PRAYERS.every(p => todayData[p.name]);
-        
-        if (allDone && state.lastCompletionDuaDate !== today) {
+        if (PRAYERS.every(p => todayData[p.name]) && state.lastCompletionDuaDate !== today) {
             state.lastCompletionDuaDate = today;
             saveData();
-            showCompletionModal();
+            const randomDua = DUAS[Math.floor(Math.random() * DUAS.length)];
+            document.getElementById('completionMsg').textContent = `${state.userName}, you have completed all your prayers today!`;
+            document.getElementById('randomDua').textContent = randomDua;
+            document.getElementById('completionModal').style.display = 'flex';
         }
     }
 
-    function showCompletionModal() {
-        const randomDua = DUAS[Math.floor(Math.random() * DUAS.length)];
-        document.getElementById('completionMsg').textContent = `${state.userName}, you have completed all your prayers today!`;
-        document.getElementById('randomDua').textContent = randomDua;
-        document.getElementById('completionModal').style.display = 'flex';
-    }
-
     function calculateStreak(prayerName) {
-        let streak = 0;
-        let d = new Date();
+        let streak = 0, d = new Date();
         while (true) {
             const dateStr = d.toISOString().split('T')[0];
-            if (state.history[dateStr] && state.history[dateStr][prayerName]) {
-                streak++;
-                d.setDate(d.getDate() - 1);
-            } else {
-                if (dateStr === getTodayStr()) { d.setDate(d.getDate() - 1); continue; }
-                break;
-            }
+            if (state.history[dateStr] && state.history[dateStr][prayerName]) { streak++; d.setDate(d.getDate() - 1); }
+            else { if (dateStr === getTodayStr()) { d.setDate(d.getDate() - 1); continue; } break; }
         }
         return streak;
     }
 
     function calculateTotalStreak() {
-        let streak = 0;
-        let d = new Date();
+        let streak = 0, d = new Date();
         while (true) {
             const dateStr = d.toISOString().split('T')[0];
             const dayData = state.history[dateStr] || {};
-            if (PRAYERS.every(p => dayData[p.name])) {
-                streak++;
-                d.setDate(d.getDate() - 1);
-            } else {
-                if (dateStr === getTodayStr()) { d.setDate(d.getDate() - 1); continue; }
-                break;
-            }
+            if (PRAYERS.every(p => dayData[p.name])) { streak++; d.setDate(d.getDate() - 1); }
+            else { if (dateStr === getTodayStr()) { d.setDate(d.getDate() - 1); continue; } break; }
         }
         return streak;
     }
@@ -521,36 +514,24 @@
         const tbody = document.getElementById('weeklyBody');
         tbody.innerHTML = '';
         for (let i = 0; i < 7; i++) {
-            const d = new Date();
-            d.setDate(d.getDate() - i);
+            const d = new Date(); d.setDate(d.getDate() - i);
             const dateStr = d.toISOString().split('T')[0];
             const dayData = state.history[dateStr] || {};
             const tr = document.createElement('tr');
             let cells = `<td>${d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}</td>`;
             PRAYERS.forEach(p => cells += `<td>${dayData[p.name] ? '✓' : '✗'}</td>`);
-            tr.innerHTML = cells;
-            tbody.appendChild(tr);
+            tr.innerHTML = cells; tbody.appendChild(tr);
         }
     }
 
     function renderStats() {
         const container = document.getElementById('monthlyStats');
         container.innerHTML = '';
-        const now = new Date();
-        const month = now.getMonth();
-        const year = now.getFullYear();
-        const daysInMonth = Object.keys(state.history).filter(d => {
-            const date = new Date(d);
-            return date.getMonth() === month && date.getFullYear() === year;
-        });
-        const stats = {};
-        PRAYERS.forEach(p => stats[p.name] = 0);
+        const now = new Date(), month = now.getMonth(), year = now.getFullYear();
+        const daysInMonth = Object.keys(state.history).filter(d => { const date = new Date(d); return date.getMonth() === month && date.getFullYear() === year; });
+        const stats = {}; PRAYERS.forEach(p => stats[p.name] = 0);
         let totalCompleted = 0;
-        daysInMonth.forEach(d => {
-            PRAYERS.forEach(p => {
-                if (state.history[d][p.name]) { stats[p.name]++; totalCompleted++; }
-            });
-        });
+        daysInMonth.forEach(d => { PRAYERS.forEach(p => { if (state.history[d][p.name]) { stats[p.name]++; totalCompleted++; } }); });
         const daysPassed = now.getDate();
         PRAYERS.forEach(p => {
             const pct = daysPassed > 0 ? Math.round((stats[p.name] / daysPassed) * 100) : 0;
@@ -561,68 +542,41 @@
     }
 
     function addStatItem(container, label, value) {
-        const div = document.createElement('div');
-        div.className = 'stat-item';
+        const div = document.createElement('div'); div.className = 'stat-item';
         div.innerHTML = `<span class="stat-value">${value}</span><span class="stat-label">${label}</span>`;
         container.appendChild(div);
     }
 
     function addQaza() {
-        const prayer = document.getElementById('qazaPrayer').value;
-        const reason = document.getElementById('qazaReason').value;
+        const prayer = document.getElementById('qazaPrayer').value, reason = document.getElementById('qazaReason').value;
         state.qaza.unshift({ prayer, reason, date: getTodayStr(), timestamp: Date.now() });
-        saveData();
-        renderQaza();
-        document.getElementById('qazaReason').value = '';
+        saveData(); renderQaza(); document.getElementById('qazaReason').value = '';
     }
 
     function renderQaza() {
-        const container = document.getElementById('qazaList');
-        container.innerHTML = '';
+        const container = document.getElementById('qazaList'); container.innerHTML = '';
         state.qaza.forEach((q, index) => {
-            const div = document.createElement('div');
-            div.className = 'qaza-item';
+            const div = document.createElement('div'); div.className = 'qaza-item';
             div.innerHTML = `<span><strong>${q.prayer}</strong> - ${q.date} <br><small>${q.reason || 'No reason'}</small></span>
                 <button class="btn" onclick="removeQaza(${index})" style="background:none; color:red;">✕</button>`;
             container.appendChild(div);
         });
     }
 
-    function removeQaza(index) {
-        state.qaza.splice(index, 1);
-        saveData();
-        renderQaza();
-    }
-
-    function toggleTheme() {
-        state.theme = state.theme === 'light' ? 'dark' : 'light';
-        saveData();
-        applyTheme();
-    }
-
+    function removeQaza(index) { state.qaza.splice(index, 1); saveData(); renderQaza(); }
+    function toggleTheme() { state.theme = state.theme === 'light' ? 'dark' : 'light'; saveData(); applyTheme(); }
     function applyTheme() { document.documentElement.setAttribute('data-theme', state.theme); }
-
     function exportData() {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state));
-        const a = document.createElement('a');
-        a.href = dataStr; a.download = "namaz_tracker_backup.json";
-        a.click();
+        const a = document.createElement('a'); a.href = dataStr; a.download = "namaz_tracker_backup.json"; a.click();
     }
 
     function exportPdf() {
-        const now = new Date();
-        const monthName = now.toLocaleString('default', { month: 'long' });
-        const year = now.getFullYear();
-        const daysInMonth = Object.keys(state.history).filter(d => {
-            const date = new Date(d);
-            return date.getMonth() === now.getMonth() && date.getFullYear() === year;
-        });
-        const stats = {};
-        PRAYERS.forEach(p => stats[p.name] = 0);
+        const now = new Date(), monthName = now.toLocaleString('default', { month: 'long' }), year = now.getFullYear();
+        const daysInMonth = Object.keys(state.history).filter(d => { const date = new Date(d); return date.getMonth() === now.getMonth() && date.getFullYear() === year; });
+        const stats = {}; PRAYERS.forEach(p => stats[p.name] = 0);
         let totalCompleted = 0;
-        daysInMonth.forEach(d => {
-            PRAYERS.forEach(p => { if (state.history[d][p.name]) { stats[p.name]++; totalCompleted++; } });
-        });
+        daysInMonth.forEach(d => { PRAYERS.forEach(p => { if (state.history[d][p.name]) { stats[p.name]++; totalCompleted++; } }); });
         const daysPassed = now.getDate();
 
         let html = `<html><head><style>
@@ -635,7 +589,7 @@
             </style></head><body>
                 <h1>Namaz Report - ${monthName} ${year}</h1>
                 <p><strong>User:</strong> ${state.userName || 'User'}</p>
-                <p><strong>Location:</strong> Bangalore, India</p>
+                <p><strong>Location:</strong> ${state.location ? state.location.name : 'Unknown'}</p>
                 <h3>Monthly Completion</h3>`;
         PRAYERS.forEach(p => {
             const pct = daysPassed > 0 ? Math.round((stats[p.name] / daysPassed) * 100) : 0;
@@ -649,10 +603,7 @@
         state.qaza.forEach(q => { html += `<tr><td>${q.date}</td><td>${q.prayer}</td><td>${q.reason || '-'}</td></tr>`; });
         html += `</tbody></table></body></html>`;
 
-        const win = window.open('', '_blank');
-        win.document.write(html);
-        win.document.close();
-        win.print();
+        const win = window.open('', '_blank'); win.document.write(html); win.document.close(); win.print();
     }
 
     init();
