@@ -56,7 +56,7 @@ No external libraries except API call.
 
 ### **📚 Learn With Me**
 This app taught me the Hijri calendar. I made a guide so you can learn too:
-**[📄 Download Hijri Calendar 101 PDF](/assets/Hijri-Guide.pdf)**
+**[📄 Download Hijri Calendar 101 PDF](./hijri_calendar_101.pdf)**
 
 Read it for 5 seconds daily. In 30 days you'll know all Islamic months.
 
