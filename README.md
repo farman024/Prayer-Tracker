@@ -22,7 +22,7 @@ Install to homescreen for best experience. iOS: Share → Add to Home Screen. An
 - **100% Offline PWA** - Service worker caches everything. Works without internet
 - **Global Prayer Times** - Auto-detects location via Aladhan API. Falls back to Mecca
 - **No Login, No Ads, No Tracking** - Your data never leaves your browser
-- **Hijri Guide** - **[📄 Download Hijri Calendar 101 PDF](/assets/Hijri-Guide.pdf)** to understand Islamic dates
+- **Hijri Guide** - **[📄 Download Hijri Calendar 101 PDF](./Hijri-Guide.pdf)** to understand Islamic dates
 
 ### **🛠️ Tech Stack**
 | **Tool** | **Why** |
