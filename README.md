@@ -9,7 +9,7 @@
 > Built in 1 day using Manus + GitHub Pages. Zero cost. Zero backend. 100% barakah.
 
 ### **🚀 Live Demo**
-**https://farman024.github.io/prayer-tracker**
+**[https://farman024.github.io/Prayer-Tracker]**
 
 Install to homescreen for best experience. iOS: Share → Add to Home Screen. Android: Menu → Install App.
 
