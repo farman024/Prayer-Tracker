@@ -3,29 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#27ae60">
-    <title>Namaz Tracker</title>
-    
-    <!-- Inline Web App Manifest Data -->
+    <meta name="theme-color" content="#1a6b3a">
+    <title>Prayer Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <script type="application/json" id="manifest">
     {
-        "name": "Namaz Tracker",
-        "short_name": "NamazTracker",
+        "name": "Prayer Tracker",
+        "short_name": "PrayerTracker",
         "start_url": "./",
         "display": "standalone",
-        "background_color": "#f4f7f6",
-        "theme_color": "#27ae60",
+        "background_color": "#f5f2eb",
+        "theme_color": "#1a6b3a",
         "icons": [
-            {
-                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAB7ElEQVR4nO3SQQ3AIADAQMDMbKEQjfOwPsiSOwV9dD5nD/hq3Q7g3wxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiJ5AceNArWD4cBCAAAAAElFTkSuQmCC",
-                "sizes": "192x192",
-                "type": "image/png"
-            },
-            {
-                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAHH0lEQVR4nO3VQQEAEADAQJRRS0IZxfDYXYL9Nvc9A4Ce9TsAgD8MACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIMACDKAACiDAAgygAAogwAIMoAAKIeq80FNUsMYTIAAAAASUVORK5CYII=",
-                "sizes": "512x512",
-                "type": "image/png"
-            }
+            {"src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAB7ElEQVR4nO3SQQ3AIADAQMDMbKEQjfOwPsiSOwV9dD5nD/hq3Q7g3wxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiJ5AceNArWD4cBCAAAAAElFTkSuQmCC","sizes":"192x192","type":"image/png"}
         ]
     }
     </script>
@@ -34,162 +25,600 @@
         const manifestBlob = new Blob([manifestStr], { type: 'application/json' });
         const manifestUrl = URL.createObjectURL(manifestBlob);
         const link = document.createElement('link');
-        link.rel = 'manifest';
-        link.href = manifestUrl;
+        link.rel = 'manifest'; link.href = manifestUrl;
         document.head.appendChild(link);
     </script>
 
     <style>
         :root {
-            --bg-color: #f4f7f6;
-            --card-bg: #ffffff;
-            --text-color: #333;
-            --primary-color: #2c3e50;
-            --accent-color: #27ae60;
-            --border-color: #ddd;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --bg: #f5f2eb;
+            --bg2: #ede9df;
+            --card: #ffffff;
+            --card2: #f9f7f3;
+            --text: #2a2318;
+            --text2: #6b5e4a;
+            --text3: #9e8e78;
+            --green: #1a6b3a;
+            --green-light: #e8f5ee;
+            --green-mid: #2d9e5f;
+            --red: #c0392b;
+            --red-light: #fdecea;
+            --gold: #c4973a;
+            --border: #ddd8ce;
+            --shadow: 0 2px 12px rgba(42,35,24,0.08);
+            --shadow-lg: 0 8px 32px rgba(42,35,24,0.14);
+            --radius: 14px;
+            --radius-sm: 8px;
+        }
+        [data-theme="dark"] {
+            --bg: #141210;
+            --bg2: #1e1a16;
+            --card: #242018;
+            --card2: #2c271f;
+            --text: #f0ead8;
+            --text2: #b5a88e;
+            --text3: #7a6e5a;
+            --green: #2ecc71;
+            --green-light: #0d2b1a;
+            --green-mid: #27ae60;
+            --red: #e74c3c;
+            --red-light: #2b1111;
+            --gold: #d4a74a;
+            --border: #3a3428;
+            --shadow: 0 2px 12px rgba(0,0,0,0.3);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
         }
 
-        [data-theme="dark"] {
-            --bg-color: #1a1a1a;
-            --card-bg: #2c2c2c;
-            --text-color: #e0e0e0;
-            --primary-color: #ecf0f1;
-            --accent-color: #2ecc71;
-            --border-color: #444;
-            --shadow: 0 4px 6px rgba(0,0,0,0.3);
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
-            line-height: 1.6;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
         }
 
-        .container { max-width: 600px; margin: 0 auto; }
+        .container { max-width: 600px; margin: 0 auto; padding: 16px; }
 
+        /* ─── HEADER ─── */
         header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            gap: 10px;
         }
+        .header-left { flex: 1; }
+        .app-title {
+            font-family: 'Lora', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--green);
+            letter-spacing: -0.02em;
+        }
+        .date-line {
+            font-size: 0.78rem;
+            color: var(--text2);
+            margin-top: 2px;
+        }
+        .hijri-line {
+            font-size: 0.75rem;
+            color: var(--text3);
+            font-style: italic;
+        }
+        .location-line {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.75rem;
+            color: var(--text3);
+            margin-top: 3px;
+            cursor: pointer;
+        }
+        .location-line:hover { color: var(--green); }
+        .offline-badge {
+            background: var(--red);
+            color: #fff;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            display: none;
+        }
+        .header-right { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
 
-        .date-info { font-size: 0.9rem; }
-        .offline-badge { background: #e74c3c; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 5px; display: none; }
+        .icon-btn {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+            flex-shrink: 0;
+        }
+        .icon-btn:hover { background: var(--bg2); border-color: var(--green); }
+        .icon-btn img { width: 18px; height: 18px; display: block; }
 
-        .greeting-container {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            font-weight: bold;
+        .install-btn {
+            background: var(--green);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 0 12px;
+            height: 36px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: none;
+            font-family: 'DM Sans', sans-serif;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+        .install-btn:hover { opacity: 0.85; }
+
+        /* ─── GREETING ─── */
+        .greeting {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .greeting-text {
+            font-family: 'Lora', serif;
+            font-size: 1.05rem;
+            color: var(--text);
+            font-style: italic;
+        }
+        .greeting-edit { cursor: pointer; opacity: 0.5; transition: opacity 0.2s; }
+        .greeting-edit:hover { opacity: 1; }
+        .greeting-edit img { width: 14px; height: 14px; }
+
+        /* ─── NEXT PRAYER BANNER ─── */
+        .next-prayer-banner {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+        .next-prayer-label { font-size: 0.72rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.08em; }
+        .next-prayer-name { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 600; }
+        .next-prayer-time-val { font-size: 0.9rem; opacity: 0.9; }
+        .next-prayer-countdown { text-align: right; }
+        .countdown-val { font-size: 1.5rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+        .countdown-label { font-size: 0.7rem; opacity: 0.75; }
+
+        /* ─── CARD ─── */
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 18px;
+            margin-bottom: 16px;
+        }
+        .card-title {
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
+        .card-title-icon { width: 16px; height: 16px; }
 
-        .edit-icon { cursor: pointer; font-size: 0.9rem; opacity: 0.6; }
-
-        .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-        }
-
-        h2 { margin-top: 0; font-size: 1.2rem; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; display: inline-block; }
-
+        /* ─── PRAYER ROWS ─── */
         .prayer-row {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 11px 0;
+            border-bottom: 1px solid var(--border);
+            gap: 10px;
+            transition: background 0.15s;
         }
-
         .prayer-row:last-child { border-bottom: none; }
-        .prayer-name-container { flex: 1; }
-        .prayer-name { font-weight: bold; display: block; }
-        .dua-text { font-size: 0.75rem; color: #7f8c8d; font-style: italic; }
-        .prayer-time { font-size: 0.8rem; color: var(--accent-color); font-weight: bold; }
-
-        .checkbox-container { width: 30px; height: 30px; position: relative; }
-        input[type="checkbox"] { width: 25px; height: 25px; cursor: pointer; accent-color: var(--accent-color); }
-
-        .streak-badge { font-size: 0.8rem; background: var(--accent-color); color: white; padding: 2px 8px; border-radius: 10px; margin-left: 10px; }
-
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; text-align: center; }
-        .stat-item { padding: 10px; background: rgba(39, 174, 96, 0.1); border-radius: 8px; }
-        .stat-value { font-weight: bold; font-size: 1.1rem; display: block; }
-        .stat-label { font-size: 0.7rem; text-transform: uppercase; }
-
-        .weekly-grid { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
-        .weekly-grid th, .weekly-grid td { border: 1px solid var(--border-color); padding: 8px; text-align: center; }
-
-        .qaza-section input, .qaza-section select, .qaza-section button {
-            width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color);
+        .prayer-info { flex: 1; }
+        .prayer-name-row { display: flex; align-items: center; gap: 8px; }
+        .prayer-name { font-weight: 600; font-size: 0.95rem; }
+        .friday-badge {
+            font-size: 0.65rem;
+            background: var(--gold);
+            color: #fff;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-weight: 600;
         }
+        .streak-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 0.7rem;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--text2);
+            padding: 1px 7px;
+            border-radius: 10px;
+        }
+        .streak-pill img { width: 11px; height: 11px; }
+        .streak-pill.active { background: var(--green-light); border-color: var(--green); color: var(--green); }
+        .prayer-dua { font-size: 0.72rem; color: var(--text3); margin-top: 2px; font-style: italic; }
+        .prayer-time-display { font-size: 0.82rem; font-weight: 600; color: var(--green); text-align: right; flex-shrink: 0; min-width: 45px; }
 
-        .btn { cursor: pointer; border: none; border-radius: 6px; padding: 10px 15px; font-weight: bold; transition: opacity 0.2s; }
-        .btn-primary { background: var(--accent-color); color: white; }
-        .btn-secondary { background: var(--primary-color); color: white; }
-        .btn:hover { opacity: 0.8; }
+        /* custom checkbox */
+        .prayer-check { position: relative; width: 26px; height: 26px; flex-shrink: 0; }
+        .prayer-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+        .check-box {
+            width: 26px; height: 26px;
+            border-radius: 7px;
+            border: 2px solid var(--border);
+            background: var(--bg);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .check-box img { width: 14px; height: 14px; display: none; }
+        .prayer-check input:checked + .check-box {
+            background: var(--green);
+            border-color: var(--green);
+        }
+        .prayer-check input:checked + .check-box img { display: block; }
 
-        .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .qaza-list { max-height: 200px; overflow-y: auto; font-size: 0.85rem; }
-        .qaza-item { padding: 8px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; }
+        .total-streak-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--text2);
+        }
+        .total-streak-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--green-light);
+            color: var(--green);
+            border: 1px solid var(--green);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.82rem;
+        }
+        .total-streak-badge img { width: 13px; height: 13px; }
 
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: var(--card-bg); padding: 30px; border-radius: 12px; max-width: 400px; width: 90%; text-align: center; box-shadow: var(--shadow); }
-        .modal-content input { width: 100%; padding: 10px; margin: 15px 0; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); }
+        /* ─── WEEKLY GRID ─── */
+        .weekly-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+        .weekly-table th {
+            padding: 7px 4px;
+            text-align: center;
+            color: var(--text3);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border);
+        }
+        .weekly-table td {
+            padding: 8px 4px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .weekly-table tr:last-child td { border-bottom: none; }
+        .weekly-table td:first-child { color: var(--text2); font-size: 0.72rem; text-align: left; padding-left: 2px; }
+        .prayer-cell {
+            width: 28px; height: 28px;
+            border-radius: 6px;
+            display: inline-flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.15s;
+            margin: auto;
+        }
+        .prayer-cell:hover { transform: scale(1.15); opacity: 0.85; }
+        .prayer-cell img { width: 14px; height: 14px; display: block; }
+        .cell-done { background: var(--green-light); }
+        .cell-missed { background: var(--red-light); }
+        .cell-future { background: var(--bg2); cursor: default; }
+        .cell-future:hover { transform: none; opacity: 1; }
+        .today-row td { background: var(--bg2); }
+        .today-row td:first-child { font-weight: 600; color: var(--green); }
 
-        #installBtn { display: none; }
-        @media (max-width: 480px) { body { padding: 10px; } .weekly-grid { font-size: 0.7rem; } }
+        /* ─── MONTHLY STATS ─── */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .stat-item {
+            background: var(--bg2);
+            border-radius: var(--radius-sm);
+            padding: 10px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .stat-value { font-size: 1.05rem; font-weight: 700; color: var(--green); display: block; }
+        .stat-sub { font-size: 0.68rem; color: var(--text3); margin-top: 1px; }
+        .stat-label { font-size: 0.7rem; color: var(--text2); margin-top: 2px; font-weight: 500; }
+
+        /* ─── QAZA ─── */
+        .qaza-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--red-light);
+            border: 1px solid var(--red);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            margin-bottom: 14px;
+            font-size: 0.85rem;
+        }
+        .qaza-count-num { font-size: 1.3rem; font-weight: 700; color: var(--red); }
+        .qaza-count-label { font-size: 0.72rem; color: var(--text2); }
+
+        .qaza-form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+        .qaza-form select, .qaza-form input {
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            width: 100%;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .qaza-form select:focus, .qaza-form input:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+        .btn-primary {
+            background: var(--green);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 10px 16px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: opacity 0.2s;
+            width: 100%;
+        }
+        .btn-primary:hover { opacity: 0.85; }
+
+        .qaza-list { display: flex; flex-direction: column; gap: 8px; max-height: 240px; overflow-y: auto; }
+        .qaza-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: var(--card2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+        }
+        .qaza-item-info { flex: 1; }
+        .qaza-item-prayer { font-weight: 600; font-size: 0.88rem; }
+        .qaza-item-date { font-size: 0.72rem; color: var(--text3); margin-top: 1px; }
+        .qaza-item-reason { font-size: 0.75rem; color: var(--text2); margin-top: 3px; font-style: italic; }
+        .qaza-item-actions { display: flex; gap: 6px; flex-shrink: 0; }
+        .qaza-action-btn {
+            width: 28px; height: 28px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.15s;
+        }
+        .qaza-action-btn:hover { background: var(--bg2); }
+        .qaza-action-btn img { width: 13px; height: 13px; }
+        .qaza-action-btn.delete:hover { background: var(--red-light); border-color: var(--red); }
+
+        /* ─── ACTIONS ─── */
+        .actions-row { display: flex; flex-wrap: wrap; gap: 10px; }
+        .action-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            gap: 7px;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .action-btn:hover { background: var(--bg2); border-color: var(--green); color: var(--green); }
+        .action-btn img { width: 15px; height: 15px; }
+
+        /* ─── MODALS ─── */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            padding: 16px;
+            backdrop-filter: blur(3px);
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 24px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        .modal-title {
+            font-family: 'Lora', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .modal-subtitle { font-size: 0.82rem; color: var(--text2); margin-bottom: 18px; }
+        .modal input, .modal select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        .modal input:focus, .modal select:focus { outline: none; border-color: var(--green); }
+        .modal-actions { display: flex; gap: 8px; margin-top: 4px; }
+        .modal-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: var(--radius-sm);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            color: var(--text);
+            transition: opacity 0.2s;
+        }
+        .modal-btn.primary { background: var(--green); color: #fff; border-color: var(--green); }
+        .modal-btn:hover { opacity: 0.82; }
+
+        /* ─── COMPLETION MODAL ─── */
+        .completion-content { text-align: center; }
+        .completion-emoji { font-size: 2.5rem; margin-bottom: 10px; }
+        .completion-title { font-family: 'Lora', serif; font-size: 1.4rem; color: var(--green); margin-bottom: 8px; }
+        .completion-msg { font-size: 0.9rem; color: var(--text); margin-bottom: 14px; }
+        .completion-dua { font-style: italic; color: var(--text2); font-size: 0.85rem; margin-bottom: 20px; line-height: 1.6; }
+
+        /* ─── DAY EDIT MODAL ─── */
+        .day-prayer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .day-prayer-row:last-child { border-bottom: none; }
+        .day-prayer-name { font-weight: 600; font-size: 0.9rem; }
+        .day-prayer-time { font-size: 0.78rem; color: var(--green); }
+        .toggle-btn {
+            width: 48px; height: 26px;
+            border-radius: 13px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.2s;
+            background: var(--border);
+            flex-shrink: 0;
+        }
+        .toggle-btn::after {
+            content: '';
+            position: absolute;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            top: 3px; left: 3px;
+            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .toggle-btn.on { background: var(--green); }
+        .toggle-btn.on::after { transform: translateX(22px); }
+
+        /* scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        @media (max-width: 400px) {
+            .weekly-table { font-size: 0.7rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body>
-
 <div class="container">
+
+    <!-- HEADER -->
     <header>
-        <div class="date-info">
-            <div id="unifiedDate">Loading date...</div>
-            <div id="locationDisplay">
-                <span id="cityName">Detecting location...</span>
-                <span class="edit-icon" id="changeLocationBtn">📍</span>
+        <div class="header-left">
+            <div class="app-title">Prayer Tracker</div>
+            <div class="date-line" id="gregDate">—</div>
+            <div class="hijri-line" id="hijriDate">—</div>
+            <div class="location-line" id="locationLine">
+                <!-- pin svg -->
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+                <span id="cityName">Detecting…</span>
                 <span class="offline-badge" id="offlineBadge">Offline</span>
             </div>
         </div>
-        <div style="display: flex; gap: 10px;">
-            <button class="btn btn-secondary" id="installBtn">Install App</button>
-            <button class="btn btn-secondary" id="themeToggle">🌓</button>
+        <div class="header-right">
+            <button class="install-btn" id="installBtn">Install</button>
+            <button class="icon-btn" id="themeToggle" title="Toggle theme">
+                <!-- moon/sun -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path id="themeIcon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="var(--green)"/></svg>
+            </button>
         </div>
     </header>
 
-    <div class="greeting-container">
-        <span id="greetingText">As-salamu alaykum</span>
-        <span class="edit-icon" id="editNameBtn">✏️</span>
+    <!-- GREETING -->
+    <div class="greeting">
+        <span class="greeting-text" id="greetingText">As-salamu alaykum</span>
+        <span class="greeting-edit" id="editNameBtn" title="Edit name">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/></svg>
+        </span>
     </div>
 
-    <div class="card">
-        <h2>Today's Prayers</h2>
-        <div id="prayerList"></div>
-        <div style="margin-top: 15px; font-size: 0.9rem;">
-            Total Daily Streak: <span id="totalStreak" class="streak-badge">0</span>
+    <!-- NEXT PRAYER BANNER -->
+    <div class="next-prayer-banner" id="nextPrayerBanner">
+        <div>
+            <div class="next-prayer-label">Next Prayer</div>
+            <div class="next-prayer-name" id="nextPrayerName">—</div>
+            <div class="next-prayer-time-val" id="nextPrayerTime">—</div>
+        </div>
+        <div class="next-prayer-countdown">
+            <div class="countdown-val" id="countdownVal">—</div>
+            <div class="countdown-label">remaining</div>
         </div>
     </div>
 
+    <!-- TODAY'S PRAYERS -->
     <div class="card">
-        <h2>Weekly View (Last 7 Days)</h2>
-        <div style="overflow-x: auto;">
-            <table class="weekly-grid" id="weeklyTable">
+        <div class="card-title">
+            <svg class="card-title-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="var(--green)"/></svg>
+            Today's Prayers
+        </div>
+        <div id="prayerList"></div>
+        <div class="total-streak-row">
+            <span style="color:var(--text3); font-size:0.78rem;">Full-day streak</span>
+            <span class="total-streak-badge" id="totalStreakBadge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5 0.67z" fill="var(--green)"/></svg>
+                <span id="totalStreak">0</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- WEEKLY VIEW -->
+    <div class="card">
+        <div class="card-title">
+            <svg class="card-title-icon" viewBox="0 0 24 24" fill="none"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" fill="var(--green)"/></svg>
+            Last 7 Days
+            <span style="font-size:0.72rem; font-weight:400; color:var(--text3); font-family:'DM Sans',sans-serif; margin-left:4px;">tap cell to edit</span>
+        </div>
+        <div style="overflow-x:auto;">
+            <table class="weekly-table">
                 <thead>
                     <tr>
-                        <th>Date</th>
+                        <th style="text-align:left;">Date</th>
                         <th>F</th><th>D</th><th>A</th><th>M</th><th>I</th>
                     </tr>
                 </thead>
@@ -198,415 +627,708 @@
         </div>
     </div>
 
+    <!-- MONTHLY STATS -->
     <div class="card">
-        <h2>Monthly Stats</h2>
+        <div class="card-title">
+            <svg class="card-title-icon" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="var(--green)"/></svg>
+            Monthly Stats
+        </div>
         <div class="stats-grid" id="monthlyStats"></div>
     </div>
 
-    <div class="card qaza-section">
-        <h2>Qaza Counter</h2>
-        <select id="qazaPrayer">
+    <!-- QAZA COUNTER -->
+    <div class="card">
+        <div class="card-title">
+            <svg class="card-title-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="var(--red)"/></svg>
+            Qaza Counter
+        </div>
+        <div class="qaza-summary" id="qazaSummary">
+            <div>
+                <div class="qaza-count-num" id="qazaCountNum">0</div>
+                <div class="qaza-count-label">missed prayers logged</div>
+            </div>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="var(--red)" opacity="0.5"/></svg>
+        </div>
+        <div class="qaza-form">
+            <select id="qazaPrayer">
+                <option value="Fajr">Fajr</option>
+                <option value="Dhuhr">Dhuhr</option>
+                <option value="Asr">Asr</option>
+                <option value="Maghrib">Maghrib</option>
+                <option value="Isha">Isha</option>
+            </select>
+            <input type="text" id="qazaReason" placeholder="Reason (optional)">
+            <button class="btn-primary" id="addQazaBtn">Add Missed Prayer</button>
+        </div>
+        <div class="qaza-list" id="qazaList"></div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="actions-row" style="margin-bottom:24px;">
+        <button class="action-btn" id="exportJsonBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z" fill="currentColor"/></svg>
+            Export JSON
+        </button>
+        <button class="action-btn" id="importJsonBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-7-9l-5 5 1.41 1.41L11 6.83V17h2V6.83l2.59 2.58L17 8l-5-5z" fill="currentColor"/></svg>
+            Import JSON
+        </button>
+        <button class="action-btn" id="exportPdfBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z" fill="currentColor"/></svg>
+            PDF Report
+        </button>
+    </div>
+    <input type="file" id="importFileInput" accept=".json" style="display:none;">
+</div>
+
+<!-- NAME MODAL -->
+<div class="modal-overlay" id="nameModal">
+    <div class="modal">
+        <div class="modal-title">As-salamu alaykum</div>
+        <div class="modal-subtitle">Please enter your name to get started</div>
+        <input type="text" id="userNameInput" placeholder="Your name">
+        <div class="modal-actions">
+            <button class="modal-btn primary" id="saveNameBtn">Save</button>
+        </div>
+    </div>
+</div>
+
+<!-- LOCATION MODAL -->
+<div class="modal-overlay" id="locationModal">
+    <div class="modal">
+        <div class="modal-title">Set Location</div>
+        <div class="modal-subtitle">Required for accurate prayer times</div>
+        <input type="text" id="locationInput" placeholder="e.g. Bangalore, India">
+        <div class="modal-actions">
+            <button class="modal-btn" id="detectLocationBtn">Detect</button>
+            <button class="modal-btn primary" id="saveLocationBtn">Save</button>
+        </div>
+    </div>
+</div>
+
+<!-- COMPLETION MODAL -->
+<div class="modal-overlay" id="completionModal">
+    <div class="modal">
+        <div class="completion-content">
+            <div class="completion-emoji">
+                <!-- star svg -->
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#c4973a"/></svg>
+            </div>
+            <div class="completion-title">MashaAllah!</div>
+            <div class="completion-msg" id="completionMsg"></div>
+            <div class="completion-dua" id="randomDua"></div>
+            <button class="modal-btn primary" onclick="closeModal('completionModal')" style="width:100%;">Alhamdulillah</button>
+        </div>
+    </div>
+</div>
+
+<!-- DAY EDIT MODAL -->
+<div class="modal-overlay" id="dayEditModal">
+    <div class="modal">
+        <div class="modal-title" id="dayEditTitle">Edit Prayers</div>
+        <div class="modal-subtitle" id="dayEditSubtitle"></div>
+        <div id="dayEditPrayers"></div>
+        <div class="modal-actions" style="margin-top:16px;">
+            <button class="modal-btn" onclick="closeModal('dayEditModal')">Cancel</button>
+            <button class="modal-btn primary" id="saveDayEditBtn">Save</button>
+        </div>
+    </div>
+</div>
+
+<!-- QAZA EDIT MODAL -->
+<div class="modal-overlay" id="qazaEditModal">
+    <div class="modal">
+        <div class="modal-title">Edit Qaza Entry</div>
+        <div class="modal-subtitle">Update the missed prayer details</div>
+        <select id="editQazaPrayer">
             <option value="Fajr">Fajr</option>
             <option value="Dhuhr">Dhuhr</option>
             <option value="Asr">Asr</option>
             <option value="Maghrib">Maghrib</option>
             <option value="Isha">Isha</option>
         </select>
-        <input type="text" id="qazaReason" placeholder="Reason (optional)">
-        <button class="btn btn-primary" id="addQaza">Add Missed Prayer</button>
-        <div class="qaza-list" id="qazaList"></div>
-    </div>
-
-    <div class="actions">
-        <button class="btn btn-secondary" id="exportBtn">Export JSON</button>
-        <button class="btn btn-secondary" id="exportPdfBtn">Export PDF Report</button>
-    </div>
-</div>
-
-<!-- Name Modal -->
-<div class="modal-overlay" id="nameModal">
-    <div class="modal-content">
-        <h3>Welcome</h3>
-        <p>Please enter your name:</p>
-        <input type="text" id="userNameInput" placeholder="Your Name">
-        <button class="btn btn-primary" id="saveNameBtn">Save</button>
-    </div>
-</div>
-
-<!-- Location Modal -->
-<div class="modal-overlay" id="locationModal">
-    <div class="modal-content">
-        <h3>Set Location</h3>
-        <p>Enter City, Country:</p>
-        <input type="text" id="locationInput" placeholder="e.g. Bangalore, India">
-        <button class="btn btn-primary" id="saveLocationBtn">Save Location</button>
-        <button class="btn btn-secondary" id="detectLocationBtn" style="margin-top: 10px;">Detect Automatically</button>
-    </div>
-</div>
-
-<!-- Completion Modal -->
-<div class="modal-overlay" id="completionModal">
-    <div class="modal-content">
-        <h2 style="color: var(--accent-color); border: none;">MashaAllah!</h2>
-        <p id="completionMsg"></p>
-        <p id="randomDua" style="font-style: italic; color: #7f8c8d; margin-top: 15px;"></p>
-        <button class="btn btn-primary" onclick="document.getElementById('completionModal').style.display='none'">Alhamdulillah</button>
+        <input type="text" id="editQazaReason" placeholder="Reason (optional)">
+        <div class="modal-actions">
+            <button class="modal-btn" onclick="closeModal('qazaEditModal')">Cancel</button>
+            <button class="modal-btn primary" id="saveQazaEditBtn">Update</button>
+        </div>
     </div>
 </div>
 
 <script>
-    // Service Worker Registration
-    if ('serviceWorker' in navigator) {
-        const swCode = `
-            const CACHE_NAME = 'namaz-tracker-v4';
-            self.addEventListener('install', e => {
-                self.skipWaiting();
-                e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll([location.origin + location.pathname])));
-            });
-            self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
-            self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
-        `;
-        const swBlob = new Blob([swCode], { type: 'application/javascript' });
-        navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(err => console.error('SW Error:', err));
+// ─── SERVICE WORKER ───
+if ('serviceWorker' in navigator) {
+    const swCode = `
+        const CACHE = 'pt-v1';
+        self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c => c.addAll([location.origin + location.pathname]))); });
+        self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
+        self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
+    `;
+    navigator.serviceWorker.register(URL.createObjectURL(new Blob([swCode], { type: 'application/javascript' }))).catch(() => {});
+}
+
+// ─── PWA INSTALL ───
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault(); deferredPrompt = e;
+    document.getElementById('installBtn').style.display = 'block';
+});
+document.getElementById('installBtn').addEventListener('click', async () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') document.getElementById('installBtn').style.display = 'none';
+        deferredPrompt = null;
     }
+});
 
-    // PWA Install
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault(); deferredPrompt = e;
-        document.getElementById('installBtn').style.display = 'block';
-    });
-    document.getElementById('installBtn').addEventListener('click', async () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') document.getElementById('installBtn').style.display = 'none';
-            deferredPrompt = null;
-        }
-    });
+// ─── CONSTANTS ───
+const PRAYERS = [
+    { name: 'Fajr',    dua: 'Allahumma ajirni minan-naar' },
+    { name: 'Dhuhr',   dua: 'Subhanallahi wa bihamdihi' },
+    { name: 'Asr',     dua: 'Astaghfirullah al-Azim' },
+    { name: 'Maghrib', dua: 'Allahumma inni as-alukal jannah' },
+    { name: 'Isha',    dua: 'La hawla wa la quwwata illa billah' }
+];
+const DUAS = [
+    "Rabbana atina fid-dunya hasanah wa fil-akhirati hasanah wa qina azaban-naar",
+    "Allahumma inni as'aluka al-jannah wa a'udhu bika minan-naar",
+    "Hasbiyallahu la ilaha illa huwa alayhi tawakkaltu wa huwa rabbul-arshil-azim",
+    "Allahumma-ghfirli warhamni wa-hdini wa-rzuqni",
+    "Subhanallahi wa bihamdihi subhanallahil-azim"
+];
 
-    const PRAYERS = [
-        { name: 'Fajr', dua: 'Allahumma ajirni minan naar' },
-        { name: 'Dhuhr', dua: 'Subhanallahi wal hamdulillah' },
-        { name: 'Asr', dua: 'Astaghfirullah al-azim' },
-        { name: 'Maghrib', dua: 'Allahumma inni as-alukal jannah' },
-        { name: 'Isha', dua: 'Subhanallahi wa bihamdihi' }
-    ];
+// ─── STATE ───
+let state = {
+    history: {}, qaza: [], theme: 'light', userName: '',
+    lastCompletionDuaDate: '', location: null, prayerTimes: null, hijriDate: null
+};
 
-    const DUAS = [
-        "Allahumma inni as'aluka al-jannah", "Rabbana atina fid-dunya hasanah",
-        "Allahumma ajirni minan-naar", "Hasbiyallahu la ilaha illa huwa",
-        "La hawla wa la quwwata illa billah"
-    ];
+// ─── TWEMOJI INLINE SVGS (key ones) ───
+// We use inline SVG paths for all icons — no system emojis
+const SVG = {
+    fire: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5 0.67z" fill="currentColor"/></svg>`,
+    check: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#fff"/></svg>`,
+    checkGreen: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#1a6b3a"/></svg>`,
+    cross: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="#c0392b"/></svg>`,
+    dash: `<svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M19 13H5v-2h14v2z" fill="#9e8e78"/></svg>`,
+    edit: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/></svg>`,
+    trash: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor"/></svg>`
+};
 
-    let state = {
-        history: {}, qaza: [], theme: 'light', userName: '',
-        lastCompletionDuaDate: '', location: null, prayerTimes: null, hijriDate: null
-    };
+// ─── UTILS ───
+function getTodayStr() { return new Date().toISOString().split('T')[0]; }
+function isFriday() { return new Date().getDay() === 5; }
+function isFridayDate(dateStr) { return new Date(dateStr).getDay() === 5; }
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 
-    async function init() {
-        loadData();
-        checkName();
-        applyTheme();
-        updateGreeting();
-        
-        if (!state.location) {
-            detectLocation();
-        } else {
-            fetchPrayerTimes();
-        }
+// ─── PERSIST ───
+function loadData() {
+    const s = localStorage.getItem('ptData2');
+    if (s) try { state = JSON.parse(s); } catch(e) {}
+}
+function saveData() { localStorage.setItem('ptData2', JSON.stringify(state)); }
 
-        document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-        document.getElementById('addQaza').addEventListener('click', addQaza);
-        document.getElementById('exportBtn').addEventListener('click', exportData);
-        document.getElementById('exportPdfBtn').addEventListener('click', exportPdf);
-        document.getElementById('saveNameBtn').addEventListener('click', saveName);
-        document.getElementById('editNameBtn').addEventListener('click', () => {
-            document.getElementById('userNameInput').value = state.userName;
-            document.getElementById('nameModal').style.display = 'flex';
-        });
-        document.getElementById('changeLocationBtn').addEventListener('click', () => {
-            document.getElementById('locationModal').style.display = 'flex';
-        });
-        document.getElementById('saveLocationBtn').addEventListener('click', saveManualLocation);
-        document.getElementById('detectLocationBtn').addEventListener('click', detectLocation);
+// ─── INIT ───
+async function init() {
+    loadData();
+    applyTheme();
+    if (!state.userName) { openModal('nameModal'); }
+    else { updateGreeting(); }
+    if (!state.location) { openModal('locationModal'); }
+    else { await fetchPrayerTimes(); }
+    renderAll();
+    startCountdownTimer();
+    setupListeners();
+    window.addEventListener('online', () => document.getElementById('offlineBadge').style.display = 'none');
+    window.addEventListener('offline', () => document.getElementById('offlineBadge').style.display = 'inline');
+    if (!navigator.onLine) document.getElementById('offlineBadge').style.display = 'inline';
+}
 
-        window.addEventListener('online', () => document.getElementById('offlineBadge').style.display = 'none');
-        window.addEventListener('offline', () => document.getElementById('offlineBadge').style.display = 'inline');
-        if (!navigator.onLine) document.getElementById('offlineBadge').style.display = 'inline';
+// ─── THEME ───
+function applyTheme() {
+    document.documentElement.setAttribute('data-theme', state.theme);
+    const icon = document.getElementById('themeIcon');
+    if (state.theme === 'dark') {
+        icon.setAttribute('d', 'M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2v-2H2v2zm18 0h2v-2h-2v2zM11 2v2h2V2h-2zm0 18v2h2v-2h-2zM5.99 4.58L4.58 5.99l1.41 1.41 1.41-1.41-1.41-1.41zM18.01 16.17l-1.41 1.41 1.41 1.41 1.41-1.41-1.41-1.41zM5.99 19.42l1.41-1.41-1.41-1.41-1.41 1.41 1.41 1.41zM18.01 5.99l-1.41-1.41-1.41 1.41 1.41 1.41 1.41-1.41z');
+    } else {
+        icon.setAttribute('d', 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z');
     }
+    icon.setAttribute('fill', 'var(--green)');
+}
+function toggleTheme() {
+    state.theme = state.theme === 'light' ? 'dark' : 'light';
+    saveData(); applyTheme();
+}
 
-    function loadData() {
-        const saved = localStorage.getItem('namazTrackerData');
-        if (saved) state = JSON.parse(saved);
-    }
+// ─── NAME ───
+function saveName() {
+    const n = document.getElementById('userNameInput').value.trim();
+    if (!n) return;
+    state.userName = n; saveData(); updateGreeting(); closeModal('nameModal');
+}
+function updateGreeting() {
+    if (state.userName) document.getElementById('greetingText').textContent = `As-salamu alaykum, ${state.userName}`;
+}
 
-    function saveData() { localStorage.setItem('namazTrackerData', JSON.stringify(state)); }
-
-    function checkName() { if (!state.userName) document.getElementById('nameModal').style.display = 'flex'; }
-
-    function saveName() {
-        const name = document.getElementById('userNameInput').value.trim();
-        if (name) { state.userName = name; saveData(); updateGreeting(); document.getElementById('nameModal').style.display = 'none'; }
-    }
-
-    function updateGreeting() { if (state.userName) document.getElementById('greetingText').textContent = `As-salamu alaykum, ${state.userName}`; }
-
-    function detectLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(async (pos) => {
-                const { latitude, longitude } = pos.coords;
-                state.location = { lat: latitude, lng: longitude };
-                await reverseGeocode(latitude, longitude);
-                fetchPrayerTimes();
-                document.getElementById('locationModal').style.display = 'none';
-            }, () => {
-                document.getElementById('locationModal').style.display = 'flex';
-            });
-        } else {
-            document.getElementById('locationModal').style.display = 'flex';
-        }
-    }
-
-    async function reverseGeocode(lat, lng) {
+// ─── LOCATION ───
+function detectLocation() {
+    if (!navigator.geolocation) { openModal('locationModal'); return; }
+    navigator.geolocation.getCurrentPosition(async pos => {
+        const { latitude: lat, longitude: lng } = pos.coords;
+        state.location = { lat, lng };
         try {
-            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
-            const data = await res.json();
-            const city = data.address.city || data.address.town || data.address.village || "Unknown City";
-            const country = data.address.country || "Unknown Country";
+            const r = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+            const d = await r.json();
+            const city = d.address.city || d.address.town || d.address.village || 'Location';
+            const country = d.address.country || '';
             state.location.name = `${city}, ${country}`;
+        } catch { state.location.name = 'Detected'; }
+        saveData(); document.getElementById('cityName').textContent = state.location.name;
+        closeModal('locationModal'); await fetchPrayerTimes(); renderAll();
+    }, () => openModal('locationModal'));
+}
+function saveManualLocation() {
+    const loc = document.getElementById('locationInput').value.trim();
+    if (!loc) return;
+    state.location = { name: loc, manual: true }; saveData();
+    document.getElementById('cityName').textContent = loc;
+    closeModal('locationModal'); fetchPrayerTimes().then(renderAll);
+}
+
+// ─── PRAYER TIMES ───
+async function fetchPrayerTimes() {
+    if (!state.location) return;
+    const today = getTodayStr();
+    const cached = localStorage.getItem('ptFetchDate');
+    if (cached === today && state.prayerTimes && state.hijriDate) return;
+    let url = `https://api.aladhan.com/v1/timings/${Math.floor(Date.now()/1000)}?`;
+    if (state.location.lat) url += `latitude=${state.location.lat}&longitude=${state.location.lng}`;
+    else url += `address=${encodeURIComponent(state.location.name)}`;
+    try {
+        const r = await fetch(url);
+        const d = await r.json();
+        if (d.code === 200) {
+            state.prayerTimes = d.data.timings;
+            state.hijriDate = d.data.date.hijri;
+            localStorage.setItem('ptFetchDate', today);
             saveData();
-        } catch (e) {
-            state.location.name = "Detected Location";
         }
+    } catch {}
+}
+
+// ─── RENDER ALL ───
+function renderAll() {
+    renderDateHeader();
+    renderPrayers();
+    renderWeekly();
+    renderStats();
+    renderQaza();
+    updateNextPrayer();
+    if (state.location) document.getElementById('cityName').textContent = state.location.name || '—';
+}
+
+function renderDateHeader() {
+    const now = new Date();
+    document.getElementById('gregDate').textContent = now.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    if (state.hijriDate) {
+        const h = state.hijriDate;
+        document.getElementById('hijriDate').textContent = `${h.day} ${h.month.en} ${h.year} ${h.designation.abbreviated}`;
+    } else {
+        // JS fallback Hijri calculation (approximate)
+        document.getElementById('hijriDate').textContent = getApproxHijri();
     }
+}
 
-    function saveManualLocation() {
-        const loc = document.getElementById('locationInput').value.trim();
-        if (loc) {
-            state.location = { name: loc, manual: true };
-            saveData();
-            fetchPrayerTimes();
-            document.getElementById('locationModal').style.display = 'none';
-        }
+function getApproxHijri() {
+    const now = new Date();
+    // Simple Hijri approximation based on Julian Day Number
+    const jd = Math.floor((now.getTime() / 86400000) + 2440587.5);
+    const l = jd - 1948440 + 10632;
+    const n = Math.floor((l - 1) / 10631);
+    const l2 = l - 10631 * n + 354;
+    const j = Math.floor((10985 - l2) / 5316) * Math.floor((50 * l2) / 17719)
+            + Math.floor(l2 / 5670) * Math.floor((43 * l2) / 15238);
+    const l3 = l2 - Math.floor((30 - j) / 15) * Math.floor((17719 * j) / 50)
+             - Math.floor(j / 16) * Math.floor((15238 * j) / 43) + 29;
+    const month = Math.floor((24 * l3) / 709);
+    const day = l3 - Math.floor((709 * month) / 24);
+    const year = 30 * n + j - 30;
+    const months = ['Muharram','Safar','Rabi al-Awwal','Rabi al-Thani','Jumada al-Awwal','Jumada al-Thani','Rajab','Sha\'ban','Ramadan','Shawwal','Dhu al-Qi\'dah','Dhu al-Hijjah'];
+    return `${day} ${months[month - 1] || ''} ${year} AH`;
+}
+
+// ─── PRAYERS RENDER ───
+function renderPrayers() {
+    const today = getTodayStr();
+    const todayData = state.history[today] || {};
+    const container = document.getElementById('prayerList');
+    container.innerHTML = '';
+    const friday = isFriday();
+
+    PRAYERS.forEach(p => {
+        const done = !!todayData[p.name];
+        const streak = calculateStreak(p.name);
+        const time = state.prayerTimes ? state.prayerTimes[p.name] : '--:--';
+
+        const row = document.createElement('div');
+        row.className = 'prayer-row';
+        row.innerHTML = `
+            <label class="prayer-check">
+                <input type="checkbox" ${done ? 'checked' : ''} onchange="togglePrayer('${p.name}')">
+                <div class="check-box">${SVG.check}</div>
+            </label>
+            <div class="prayer-info">
+                <div class="prayer-name-row">
+                    <span class="prayer-name">${p.name}</span>
+                    ${friday && p.name === 'Dhuhr' ? '<span class="friday-badge">Jumu\'ah</span>' : ''}
+                    <span class="streak-pill ${streak > 0 ? 'active' : ''}">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5 0.67z" fill="currentColor"/></svg>
+                        ${streak}
+                    </span>
+                </div>
+                <div class="prayer-dua">${p.dua}</div>
+            </div>
+            <div class="prayer-time-display">${time}</div>
+        `;
+        container.appendChild(row);
+    });
+
+    document.getElementById('totalStreak').textContent = calculateTotalStreak();
+}
+
+function togglePrayer(name) {
+    const today = getTodayStr();
+    if (!state.history[today]) state.history[today] = {};
+    state.history[today][name] = !state.history[today][name];
+    saveData(); renderPrayers(); renderWeekly(); renderStats(); checkCompletion(); updateNextPrayer();
+}
+
+// ─── COMPLETION ───
+function checkCompletion() {
+    const today = getTodayStr();
+    const td = state.history[today] || {};
+    if (PRAYERS.every(p => td[p.name]) && state.lastCompletionDuaDate !== today) {
+        state.lastCompletionDuaDate = today; saveData();
+        document.getElementById('completionMsg').textContent = `${state.userName}, you have completed all 5 prayers today! May Allah accept them.`;
+        document.getElementById('randomDua').textContent = DUAS[Math.floor(Math.random() * DUAS.length)];
+        openModal('completionModal');
     }
+}
 
-    async function fetchPrayerTimes() {
-        const today = getTodayStr();
-        const cachedDate = localStorage.getItem('lastFetchDate');
-        
-        if (cachedDate === today && state.prayerTimes && state.hijriDate) {
-            renderDashboard();
-            return;
-        }
-
-        let url = `https://api.aladhan.com/v1/timings/${Math.floor(Date.now()/1000)}?`;
-        if (state.location.lat) {
-            url += `latitude=${state.location.lat}&longitude=${state.location.lng}`;
-        } else {
-            url += `address=${encodeURIComponent(state.location.name)}`;
-        }
-
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
-            if (data.code === 200) {
-                state.prayerTimes = data.data.timings;
-                state.hijriDate = data.data.date.hijri;
-                localStorage.setItem('lastFetchDate', today);
-                saveData();
-                renderDashboard();
-            }
-        } catch (e) {
-            if (state.prayerTimes) renderDashboard();
-        }
+// ─── STREAKS ───
+function calculateStreak(prayerName) {
+    let streak = 0, d = new Date();
+    for (let i = 0; i < 365; i++) {
+        const ds = d.toISOString().split('T')[0];
+        if (ds === getTodayStr() && i === 0) { d.setDate(d.getDate() - 1); continue; }
+        if (state.history[ds] && state.history[ds][prayerName]) { streak++; d.setDate(d.getDate() - 1); }
+        else break;
     }
-
-    function renderDashboard() {
-        const now = new Date();
-        const greg = now.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-        const hijri = state.hijriDate ? `${state.hijriDate.day} ${state.hijriDate.month.en} ${state.hijriDate.year} ${state.hijriDate.designation.abbreviated}` : "";
-        document.getElementById('unifiedDate').textContent = `${greg} | ${hijri}`;
-        document.getElementById('cityName').textContent = state.location.name;
-        
-        renderPrayers();
-        renderWeekly();
-        renderStats();
-        renderQaza();
+    return streak;
+}
+function calculateTotalStreak() {
+    let streak = 0, d = new Date();
+    for (let i = 0; i < 365; i++) {
+        const ds = d.toISOString().split('T')[0];
+        if (ds === getTodayStr() && i === 0) { d.setDate(d.getDate() - 1); continue; }
+        const dd = state.history[ds] || {};
+        if (PRAYERS.every(p => dd[p.name])) { streak++; d.setDate(d.getDate() - 1); }
+        else break;
     }
+    return streak;
+}
 
-    function getTodayStr() { return new Date().toISOString().split('T')[0]; }
+// ─── WEEKLY GRID ───
+function renderWeekly() {
+    const tbody = document.getElementById('weeklyBody');
+    tbody.innerHTML = '';
+    const todayStr = getTodayStr();
+    const now = new Date();
 
-    function renderPrayers() {
-        const today = getTodayStr();
-        const todayData = state.history[today] || {};
-        const container = document.getElementById('prayerList');
-        container.innerHTML = '';
+    for (let i = 0; i < 7; i++) {
+        const d = new Date(); d.setDate(d.getDate() - i);
+        const ds = d.toISOString().split('T')[0];
+        const dayData = state.history[ds] || {};
+        const isToday = ds === todayStr;
+        const isFri = isFridayDate(ds);
+
+        const tr = document.createElement('tr');
+        if (isToday) tr.className = 'today-row';
+
+        const dayLabel = i === 0 ? 'Today' : i === 1 ? 'Yesterday' : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+        let cells = `<td>${dayLabel}${isFri ? ' <span style="color:var(--gold);font-size:0.65rem;">Jum.</span>' : ''}</td>`;
 
         PRAYERS.forEach(p => {
-            const row = document.createElement('div');
-            row.className = 'prayer-row';
-            const streak = calculateStreak(p.name);
-            const time = state.prayerTimes ? state.prayerTimes[p.name] : "--:--";
-            row.innerHTML = `
-                <div class="prayer-name-container">
-                    <span class="prayer-name">${p.name} <span class="streak-badge">🔥 ${streak}</span></span>
-                    <span class="dua-text">${p.dua}</span>
-                </div>
-                <div style="text-align: right; margin-right: 15px;">
-                    <div class="prayer-time">${time}</div>
-                </div>
-                <div class="checkbox-container">
-                    <input type="checkbox" ${todayData[p.name] ? 'checked' : ''} onchange="togglePrayer('${p.name}')">
-                </div>
-            `;
-            container.appendChild(row);
+            const done = !!dayData[p.name];
+            const isFuture = false; // past 7 days only, all valid
+            const cellClass = done ? 'cell-done' : 'cell-missed';
+            const icon = done ? SVG.checkGreen : SVG.cross;
+            cells += `<td><div class="prayer-cell ${cellClass}" onclick="openDayEdit('${ds}')" title="${p.name} on ${ds}">${icon}</div></td>`;
         });
-        document.getElementById('totalStreak').textContent = `🔥 ${calculateTotalStreak()}`;
+        tr.innerHTML = cells;
+        tbody.appendChild(tr);
+    }
+}
+
+// ─── DAY EDIT MODAL ───
+let dayEditDate = null;
+let dayEditTemp = {};
+
+function openDayEdit(dateStr) {
+    dayEditDate = dateStr;
+    dayEditTemp = Object.assign({}, state.history[dateStr] || {});
+
+    const d = new Date(dateStr);
+    const label = dateStr === getTodayStr() ? 'Today' :
+        dateStr === (() => { const y = new Date(); y.setDate(y.getDate()-1); return y.toISOString().split('T')[0]; })() ? 'Yesterday' :
+        d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+
+    document.getElementById('dayEditTitle').textContent = label;
+    document.getElementById('dayEditSubtitle').textContent = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    const container = document.getElementById('dayEditPrayers');
+    container.innerHTML = '';
+
+    PRAYERS.forEach(p => {
+        const done = !!dayEditTemp[p.name];
+        const time = state.prayerTimes ? state.prayerTimes[p.name] : '';
+        const row = document.createElement('div');
+        row.className = 'day-prayer-row';
+        row.innerHTML = `
+            <div>
+                <div class="day-prayer-name">${p.name}</div>
+                ${time ? `<div class="day-prayer-time">${time}</div>` : ''}
+            </div>
+            <button class="toggle-btn ${done ? 'on' : ''}" id="dayToggle_${p.name}" onclick="toggleDayEdit('${p.name}')"></button>
+        `;
+        container.appendChild(row);
+    });
+
+    openModal('dayEditModal');
+}
+
+function toggleDayEdit(name) {
+    dayEditTemp[name] = !dayEditTemp[name];
+    const btn = document.getElementById(`dayToggle_${name}`);
+    btn.classList.toggle('on', !!dayEditTemp[name]);
+}
+
+function saveDayEdit() {
+    if (!dayEditDate) return;
+    if (!state.history[dayEditDate]) state.history[dayEditDate] = {};
+    PRAYERS.forEach(p => { state.history[dayEditDate][p.name] = !!dayEditTemp[p.name]; });
+    saveData(); closeModal('dayEditModal'); renderAll();
+}
+
+// ─── MONTHLY STATS ───
+function renderStats() {
+    const container = document.getElementById('monthlyStats');
+    container.innerHTML = '';
+    const now = new Date(), m = now.getMonth(), y = now.getFullYear();
+    const days = Object.keys(state.history).filter(d => { const dt = new Date(d); return dt.getMonth() === m && dt.getFullYear() === y; });
+    const counts = {}; PRAYERS.forEach(p => counts[p.name] = 0);
+    let totalDone = 0;
+    days.forEach(d => { PRAYERS.forEach(p => { if (state.history[d][p.name]) { counts[p.name]++; totalDone++; } }); });
+    const dp = now.getDate();
+
+    PRAYERS.forEach(p => {
+        const pct = dp > 0 ? Math.round((counts[p.name] / dp) * 100) : 0;
+        addStat(container, p.name, `${pct}%`, `${counts[p.name]}/${dp} days`);
+    });
+    const totalPct = dp > 0 ? Math.round((totalDone / (dp * 5)) * 100) : 0;
+    addStat(container, 'Total', `${totalPct}%`, `${totalDone}/${dp * 5}`);
+}
+
+function addStat(container, label, value, sub) {
+    const div = document.createElement('div'); div.className = 'stat-item';
+    div.innerHTML = `<span class="stat-value">${value}</span><div class="stat-sub">${sub}</div><div class="stat-label">${label}</div>`;
+    container.appendChild(div);
+}
+
+// ─── NEXT PRAYER COUNTDOWN ───
+let countdownInterval = null;
+function updateNextPrayer() {
+    if (!state.prayerTimes) return;
+    const now = new Date();
+    const todayStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    let next = null, minDiff = Infinity;
+
+    PRAYERS.forEach(p => {
+        const t = state.prayerTimes[p.name];
+        if (!t || t === '--:--') return;
+        const [h, min] = t.split(':').map(Number);
+        const pTime = new Date(); pTime.setHours(h, min, 0, 0);
+        const diff = pTime - now;
+        if (diff > 0 && diff < minDiff) { minDiff = diff; next = { name: p.name, time: t, diff }; }
+    });
+
+    if (!next) {
+        document.getElementById('nextPrayerName').textContent = 'Isha';
+        document.getElementById('nextPrayerTime').textContent = state.prayerTimes['Isha'] || '--:--';
+        document.getElementById('countdownVal').textContent = 'Done';
+        return;
     }
 
-    function togglePrayer(prayerName) {
-        const today = getTodayStr();
-        if (!state.history[today]) state.history[today] = {};
-        state.history[today][prayerName] = !state.history[today][prayerName];
-        saveData();
-        renderPrayers();
-        renderWeekly();
-        renderStats();
-        checkCompletion();
-    }
+    document.getElementById('nextPrayerName').textContent = next.name;
+    document.getElementById('nextPrayerTime').textContent = next.time;
+    renderCountdown(next.diff);
+}
 
-    function checkCompletion() {
-        const today = getTodayStr();
-        const todayData = state.history[today] || {};
-        if (PRAYERS.every(p => todayData[p.name]) && state.lastCompletionDuaDate !== today) {
-            state.lastCompletionDuaDate = today;
-            saveData();
-            const randomDua = DUAS[Math.floor(Math.random() * DUAS.length)];
-            document.getElementById('completionMsg').textContent = `${state.userName}, you have completed all your prayers today!`;
-            document.getElementById('randomDua').textContent = randomDua;
-            document.getElementById('completionModal').style.display = 'flex';
-        }
-    }
+function renderCountdown(ms) {
+    const h = Math.floor(ms / 3600000);
+    const m = Math.floor((ms % 3600000) / 60000);
+    const s = Math.floor((ms % 60000) / 1000);
+    document.getElementById('countdownVal').textContent =
+        h > 0 ? `${h}h ${String(m).padStart(2,'0')}m` : `${m}m ${String(s).padStart(2,'0')}s`;
+}
 
-    function calculateStreak(prayerName) {
-        let streak = 0, d = new Date();
-        while (true) {
-            const dateStr = d.toISOString().split('T')[0];
-            if (state.history[dateStr] && state.history[dateStr][prayerName]) { streak++; d.setDate(d.getDate() - 1); }
-            else { if (dateStr === getTodayStr()) { d.setDate(d.getDate() - 1); continue; } break; }
-        }
-        return streak;
-    }
+function startCountdownTimer() {
+    if (countdownInterval) clearInterval(countdownInterval);
+    countdownInterval = setInterval(() => updateNextPrayer(), 1000);
+}
 
-    function calculateTotalStreak() {
-        let streak = 0, d = new Date();
-        while (true) {
-            const dateStr = d.toISOString().split('T')[0];
-            const dayData = state.history[dateStr] || {};
-            if (PRAYERS.every(p => dayData[p.name])) { streak++; d.setDate(d.getDate() - 1); }
-            else { if (dateStr === getTodayStr()) { d.setDate(d.getDate() - 1); continue; } break; }
-        }
-        return streak;
+// ─── QAZA ───
+function renderQaza() {
+    document.getElementById('qazaCountNum').textContent = state.qaza.length;
+    const container = document.getElementById('qazaList');
+    container.innerHTML = '';
+    if (state.qaza.length === 0) {
+        container.innerHTML = `<div style="text-align:center; color:var(--text3); font-size:0.82rem; padding:14px 0;">No missed prayers logged. Alhamdulillah!</div>`;
+        return;
     }
-
-    function renderWeekly() {
-        const tbody = document.getElementById('weeklyBody');
-        tbody.innerHTML = '';
-        for (let i = 0; i < 7; i++) {
-            const d = new Date(); d.setDate(d.getDate() - i);
-            const dateStr = d.toISOString().split('T')[0];
-            const dayData = state.history[dateStr] || {};
-            const tr = document.createElement('tr');
-            let cells = `<td>${d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}</td>`;
-            PRAYERS.forEach(p => cells += `<td>${dayData[p.name] ? '✓' : '✗'}</td>`);
-            tr.innerHTML = cells; tbody.appendChild(tr);
-        }
-    }
-
-    function renderStats() {
-        const container = document.getElementById('monthlyStats');
-        container.innerHTML = '';
-        const now = new Date(), month = now.getMonth(), year = now.getFullYear();
-        const daysInMonth = Object.keys(state.history).filter(d => { const date = new Date(d); return date.getMonth() === month && date.getFullYear() === year; });
-        const stats = {}; PRAYERS.forEach(p => stats[p.name] = 0);
-        let totalCompleted = 0;
-        daysInMonth.forEach(d => { PRAYERS.forEach(p => { if (state.history[d][p.name]) { stats[p.name]++; totalCompleted++; } }); });
-        const daysPassed = now.getDate();
-        PRAYERS.forEach(p => {
-            const pct = daysPassed > 0 ? Math.round((stats[p.name] / daysPassed) * 100) : 0;
-            addStatItem(container, p.name, `${pct}%`);
-        });
-        const totalPct = daysPassed > 0 ? Math.round((totalCompleted / (daysPassed * 5)) * 100) : 0;
-        addStatItem(container, 'Total', `${totalPct}%`);
-    }
-
-    function addStatItem(container, label, value) {
-        const div = document.createElement('div'); div.className = 'stat-item';
-        div.innerHTML = `<span class="stat-value">${value}</span><span class="stat-label">${label}</span>`;
+    state.qaza.forEach((q, i) => {
+        const div = document.createElement('div'); div.className = 'qaza-item';
+        div.innerHTML = `
+            <div class="qaza-item-info">
+                <div class="qaza-item-prayer">${q.prayer}</div>
+                <div class="qaza-item-date">${q.date}</div>
+                ${q.reason ? `<div class="qaza-item-reason">${q.reason}</div>` : ''}
+            </div>
+            <div class="qaza-item-actions">
+                <button class="qaza-action-btn" onclick="openQazaEdit(${i})" title="Edit">${SVG.edit}</button>
+                <button class="qaza-action-btn delete" onclick="removeQaza(${i})" title="Delete">${SVG.trash}</button>
+            </div>
+        `;
         container.appendChild(div);
+    });
+}
+
+function addQaza() {
+    const prayer = document.getElementById('qazaPrayer').value;
+    const reason = document.getElementById('qazaReason').value.trim();
+    state.qaza.unshift({ prayer, reason, date: getTodayStr(), timestamp: Date.now() });
+    saveData(); renderQaza(); document.getElementById('qazaReason').value = '';
+}
+
+function removeQaza(i) { state.qaza.splice(i, 1); saveData(); renderQaza(); }
+
+let editQazaIndex = null;
+function openQazaEdit(i) {
+    editQazaIndex = i;
+    const q = state.qaza[i];
+    document.getElementById('editQazaPrayer').value = q.prayer;
+    document.getElementById('editQazaReason').value = q.reason || '';
+    openModal('qazaEditModal');
+}
+function saveQazaEdit() {
+    if (editQazaIndex === null) return;
+    state.qaza[editQazaIndex].prayer = document.getElementById('editQazaPrayer').value;
+    state.qaza[editQazaIndex].reason = document.getElementById('editQazaReason').value.trim();
+    saveData(); renderQaza(); closeModal('qazaEditModal'); editQazaIndex = null;
+}
+
+// ─── EXPORT / IMPORT ───
+function exportJson() {
+    const a = document.createElement('a');
+    a.href = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(state, null, 2));
+    a.download = `prayer_tracker_backup_${getTodayStr()}.json`;
+    a.click();
+}
+
+function triggerImport() { document.getElementById('importFileInput').click(); }
+
+document.getElementById('importFileInput').addEventListener('change', e => {
+    const file = e.target.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+        try {
+            const imported = JSON.parse(ev.target.result);
+            if (imported.history !== undefined) {
+                state = imported; saveData(); renderAll(); updateGreeting();
+                alert('Data restored successfully. Alhamdulillah!');
+            } else { alert('Invalid backup file.'); }
+        } catch { alert('Could not read file. Please use a valid JSON backup.'); }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+});
+
+function exportPdf() {
+    const now = new Date(), m = now.getMonth(), y = now.getFullYear();
+    const monthName = now.toLocaleString('default', { month: 'long' });
+    const days = Object.keys(state.history).filter(d => { const dt = new Date(d); return dt.getMonth() === m && dt.getFullYear() === y; });
+    const counts = {}; PRAYERS.forEach(p => counts[p.name] = 0);
+    let totalDone = 0;
+    days.forEach(d => { PRAYERS.forEach(p => { if (state.history[d][p.name]) { counts[p.name]++; totalDone++; } }); });
+    const dp = now.getDate();
+
+    let html = `<html><head><style>
+        body{font-family:Georgia,serif;padding:40px;color:#2a2318;background:#fafaf8;}
+        h1{color:#1a6b3a;border-bottom:2px solid #1a6b3a;padding-bottom:8px;}
+        h3{color:#2d9e5f;margin-top:24px;}
+        .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;}
+        .stat{background:#f0f7f3;border:1px solid #cde8d7;border-radius:8px;padding:12px;text-align:center;}
+        .sv{font-size:1.4rem;font-weight:bold;color:#1a6b3a;}
+        .sl{font-size:0.75rem;color:#6b5e4a;margin-top:4px;}
+        table{width:100%;border-collapse:collapse;margin-top:12px;}
+        th,td{border:1px solid #ddd;padding:8px;font-size:0.85rem;}
+        th{background:#f0f7f3;}
+        p{color:#6b5e4a;font-size:0.9rem;}
+    </style></head><body>
+    <h1>Prayer Tracker — ${monthName} ${y}</h1>
+    <p><strong>Name:</strong> ${state.userName || 'User'} &nbsp;&nbsp; <strong>Location:</strong> ${state.location?.name || '—'} &nbsp;&nbsp; <strong>Generated:</strong> ${new Date().toLocaleDateString()}</p>
+    <h3>Monthly Completion</h3><div class="grid">`;
+
+    PRAYERS.forEach(p => {
+        const pct = dp > 0 ? Math.round((counts[p.name] / dp) * 100) : 0;
+        html += `<div class="stat"><div class="sv">${pct}%</div><div class="sl">${counts[p.name]}/${dp} days</div><div class="sl">${p.name} · ${calculateStreak(p.name)} streak</div></div>`;
+    });
+    const totalPct = dp > 0 ? Math.round((totalDone / (dp * 5)) * 100) : 0;
+    html += `<div class="stat"><div class="sv">${totalPct}%</div><div class="sl">${totalDone}/${dp * 5} prayers</div><div class="sl">Overall · ${calculateTotalStreak()} full-day streak</div></div>`;
+    html += `</div><h3>Qaza Log (${state.qaza.length} missed)</h3>`;
+
+    if (state.qaza.length === 0) {
+        html += `<p>No missed prayers logged. Alhamdulillah!</p>`;
+    } else {
+        html += `<table><thead><tr><th>Date</th><th>Prayer</th><th>Reason</th></tr></thead><tbody>`;
+        state.qaza.forEach(q => { html += `<tr><td>${q.date}</td><td>${q.prayer}</td><td>${q.reason || '—'}</td></tr>`; });
+        html += `</tbody></table>`;
     }
+    html += `</body></html>`;
+    const win = window.open('', '_blank'); win.document.write(html); win.document.close(); win.print();
+}
 
-    function addQaza() {
-        const prayer = document.getElementById('qazaPrayer').value, reason = document.getElementById('qazaReason').value;
-        state.qaza.unshift({ prayer, reason, date: getTodayStr(), timestamp: Date.now() });
-        saveData(); renderQaza(); document.getElementById('qazaReason').value = '';
-    }
+// ─── EVENT LISTENERS ───
+function setupListeners() {
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    document.getElementById('editNameBtn').addEventListener('click', () => { document.getElementById('userNameInput').value = state.userName; openModal('nameModal'); });
+    document.getElementById('saveNameBtn').addEventListener('click', saveName);
+    document.getElementById('userNameInput').addEventListener('keydown', e => { if (e.key === 'Enter') saveName(); });
+    document.getElementById('locationLine').addEventListener('click', () => openModal('locationModal'));
+    document.getElementById('saveLocationBtn').addEventListener('click', saveManualLocation);
+    document.getElementById('detectLocationBtn').addEventListener('click', detectLocation);
+    document.getElementById('locationInput').addEventListener('keydown', e => { if (e.key === 'Enter') saveManualLocation(); });
+    document.getElementById('addQazaBtn').addEventListener('click', addQaza);
+    document.getElementById('saveQazaEditBtn').addEventListener('click', saveQazaEdit);
+    document.getElementById('saveDayEditBtn').addEventListener('click', saveDayEdit);
+    document.getElementById('exportJsonBtn').addEventListener('click', exportJson);
+    document.getElementById('importJsonBtn').addEventListener('click', triggerImport);
+    document.getElementById('exportPdfBtn').addEventListener('click', exportPdf);
+}
 
-    function renderQaza() {
-        const container = document.getElementById('qazaList'); container.innerHTML = '';
-        state.qaza.forEach((q, index) => {
-            const div = document.createElement('div'); div.className = 'qaza-item';
-            div.innerHTML = `<span><strong>${q.prayer}</strong> - ${q.date} <br><small>${q.reason || 'No reason'}</small></span>
-                <button class="btn" onclick="removeQaza(${index})" style="background:none; color:red;">✕</button>`;
-            container.appendChild(div);
-        });
-    }
-
-    function removeQaza(index) { state.qaza.splice(index, 1); saveData(); renderQaza(); }
-    function toggleTheme() { state.theme = state.theme === 'light' ? 'dark' : 'light'; saveData(); applyTheme(); }
-    function applyTheme() { document.documentElement.setAttribute('data-theme', state.theme); }
-    function exportData() {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state));
-        const a = document.createElement('a'); a.href = dataStr; a.download = "namaz_tracker_backup.json"; a.click();
-    }
-
-    function exportPdf() {
-        const now = new Date(), monthName = now.toLocaleString('default', { month: 'long' }), year = now.getFullYear();
-        const daysInMonth = Object.keys(state.history).filter(d => { const date = new Date(d); return date.getMonth() === now.getMonth() && date.getFullYear() === year; });
-        const stats = {}; PRAYERS.forEach(p => stats[p.name] = 0);
-        let totalCompleted = 0;
-        daysInMonth.forEach(d => { PRAYERS.forEach(p => { if (state.history[d][p.name]) { stats[p.name]++; totalCompleted++; } }); });
-        const daysPassed = now.getDate();
-
-        let html = `<html><head><style>
-                body { font-family: sans-serif; padding: 40px; color: #333; }
-                h1 { color: #27ae60; border-bottom: 2px solid #27ae60; }
-                .stat-box { display: inline-block; width: 30%; margin-bottom: 20px; }
-                table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-                th { background-color: #f2f2f2; }
-            </style></head><body>
-                <h1>Namaz Report - ${monthName} ${year}</h1>
-                <p><strong>User:</strong> ${state.userName || 'User'}</p>
-                <p><strong>Location:</strong> ${state.location ? state.location.name : 'Unknown'}</p>
-                <h3>Monthly Completion</h3>`;
-        PRAYERS.forEach(p => {
-            const pct = daysPassed > 0 ? Math.round((stats[p.name] / daysPassed) * 100) : 0;
-            html += `<div class="stat-box"><strong>${p.name}:</strong> ${pct}% (${calculateStreak(p.name)} streak)</div>`;
-        });
-        const totalPct = daysPassed > 0 ? Math.round((totalCompleted / (daysPassed * 5)) * 100) : 0;
-        html += `<p><strong>Total Monthly Completion:</strong> ${totalPct}%</p>
-                 <p><strong>Total Daily Streak:</strong> ${calculateTotalStreak()} days</p>
-                 <h3>Qaza Log</h3>
-                 <table><thead><tr><th>Date</th><th>Prayer</th><th>Reason</th></tr></thead><tbody>`;
-        state.qaza.forEach(q => { html += `<tr><td>${q.date}</td><td>${q.prayer}</td><td>${q.reason || '-'}</td></tr>`; });
-        html += `</tbody></table></body></html>`;
-
-        const win = window.open('', '_blank'); win.document.write(html); win.document.close(); win.print();
-    }
-
-    init();
+init();
 </script>
 </body>
 </html>
