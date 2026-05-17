@@ -756,15 +756,89 @@
 </div>
 
 <script>
-// ─── SERVICE WORKER ───
+// ─── SERVICE WORKER (OFFLINE-FIRST) ───
 if ('serviceWorker' in navigator) {
     const swCode = `
-        const CACHE = 'pt-v1';
-        self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c => c.addAll([location.origin + location.pathname]))); });
-        self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
-        self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
+const CACHE_SHELL = 'pt-shell-v2';
+const CACHE_API   = 'pt-api-v2';
+const SHELL_URLS  = [self.location.href];
+
+// ── INSTALL: cache app shell immediately ──
+self.addEventListener('install', e => {
+    self.skipWaiting();
+    e.waitUntil(
+        caches.open(CACHE_SHELL).then(c => c.addAll(SHELL_URLS)).catch(() => {})
+    );
+});
+
+// ── ACTIVATE: clear old caches ──
+self.addEventListener('activate', e => {
+    e.waitUntil(
+        caches.keys().then(keys =>
+            Promise.all(keys.filter(k => k !== CACHE_SHELL && k !== CACHE_API).map(k => caches.delete(k)))
+        ).then(() => self.clients.claim())
+    );
+});
+
+// ── FETCH: smart routing ──
+self.addEventListener('fetch', e => {
+    const url = e.request.url;
+
+    // API calls (AlAdhan + Nominatim) → Network first, cache fallback
+    if (url.includes('aladhan.com') || url.includes('nominatim.openstreetmap.org')) {
+        e.respondWith(
+            fetch(e.request.clone())
+                .then(res => {
+                    if (res && res.status === 200) {
+                        const resClone = res.clone();
+                        caches.open(CACHE_API).then(c => c.put(e.request, resClone));
+                    }
+                    return res;
+                })
+                .catch(() => caches.match(e.request))
+        );
+        return;
+    }
+
+    // Google Fonts → Network first, cache fallback
+    if (url.includes('fonts.googleapis.com') || url.includes('fonts.gstatic.com')) {
+        e.respondWith(
+            fetch(e.request.clone())
+                .then(res => {
+                    if (res && res.status === 200) {
+                        const resClone = res.clone();
+                        caches.open(CACHE_SHELL).then(c => c.put(e.request, resClone));
+                    }
+                    return res;
+                })
+                .catch(() => caches.match(e.request))
+        );
+        return;
+    }
+
+    // App shell → Cache first, network fallback
+    e.respondWith(
+        caches.match(e.request).then(cached => {
+            if (cached) return cached;
+            return fetch(e.request.clone()).then(res => {
+                if (res && res.status === 200) {
+                    const resClone = res.clone();
+                    caches.open(CACHE_SHELL).then(c => c.put(e.request, resClone));
+                }
+                return res;
+            }).catch(() => caches.match(SHELL_URLS[0]));
+        })
+    );
+});
     `;
-    navigator.serviceWorker.register(URL.createObjectURL(new Blob([swCode], { type: 'application/javascript' }))).catch(() => {});
+
+    const swBlob = new Blob([swCode], { type: 'application/javascript' });
+    const swUrl  = URL.createObjectURL(swBlob);
+
+    navigator.serviceWorker.register(swUrl).then(reg => {
+        // Check for SW updates every 60s
+        setInterval(() => reg.update(), 60000);
+    }).catch(() => {});
 }
 
 // ─── PWA INSTALL ───
@@ -841,9 +915,11 @@ async function init() {
     renderAll();
     startCountdownTimer();
     setupListeners();
-    window.addEventListener('online', () => document.getElementById('offlineBadge').style.display = 'none');
-    window.addEventListener('offline', () => document.getElementById('offlineBadge').style.display = 'inline');
-    if (!navigator.onLine) document.getElementById('offlineBadge').style.display = 'inline';
+    const badge = document.getElementById('offlineBadge');
+    const updateBadge = () => badge.style.display = navigator.onLine ? 'none' : 'inline';
+    window.addEventListener('online',  () => { updateBadge(); fetchPrayerTimes().then(renderAll); });
+    window.addEventListener('offline', updateBadge);
+    updateBadge();
 }
 
 // ─── THEME ───
